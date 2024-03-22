@@ -1,0 +1,19 @@
+package com.itwill.loop10;
+
+public class LoopMain10 {
+
+	public static void main(String[] args) {
+		// while (조건식) { ... }
+		// while 반복문은 블록을 시작하기 전에 조건식을 검사하기 떄문에,
+		// 처음부터 조건식이 false가 되는 경우에는 블록이 한번도 실행되지 않을 수 있음.
+		
+		int x = 1;
+		while(x < 0 ) {
+			System.out.println(x);
+			x--;
+		}
+		System.out.println("==> end while 1");
+		
+	}
+
+}

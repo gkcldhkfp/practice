@@ -1,0 +1,17 @@
+package com.itwill.condition03;
+
+public class ConditionMain03 {
+	
+		public static void main(String[] args) {
+			// Scanner 타입의 변수를 선언, 초기화.
+			
+			// 콘솔 창에서 Java 과목 점수를 입력받고 저장.
+			
+			// 콘솔 창에서 SQL 과목 점수를 입력받고 저장.
+			
+			// 콘솔 창에서 JavaScript 과목 점수를 입력받고 저장.
+			
+			
+		}
+
+}

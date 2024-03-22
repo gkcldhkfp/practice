@@ -1,0 +1,21 @@
+package com.itwll.array01;
+
+public class ArrayMain01 {
+
+	public static void main(String[] args) {
+		// 배열의 필요성:
+		
+		// 점수들
+		int score1 = 100;
+		int score2 = 90;
+		int score3 = 95;
+		
+		// 총점
+		int total = score1 + score2 + score3;
+		System.out.println("총점 = "+total);
+		
+		
+		
+	}
+
+}

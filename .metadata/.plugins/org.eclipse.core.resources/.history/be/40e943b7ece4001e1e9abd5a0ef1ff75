@@ -1,0 +1,17 @@
+package com.itwill.condition07;
+
+import java.util.Random;
+
+public class ConditionMain06 {
+
+	public static void main(String[] args) {
+		// 조건문, 비교/논리 연산자 연습
+		
+		// 난수(random number)를 생성할 수 있는 타입의 변수를 선언, 초기화.
+		Random roll = new Random();
+		
+		
+		System.out.println(roll);
+	}
+
+}

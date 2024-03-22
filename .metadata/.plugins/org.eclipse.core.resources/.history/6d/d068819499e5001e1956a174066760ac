@@ -1,0 +1,15 @@
+package com.itwill.loop01;
+
+public class LoopMain01 {
+
+	public static void main(String[] args) {
+		// 반복문
+		for (int i = 5; i > 5 && i < 10; i++) {
+			System.out.println("Java "+i);
+		}
+		
+		
+
+	}
+
+}

@@ -1,0 +1,41 @@
+package com.itwill.loop08;
+
+public class LoopMain08 {
+
+	public static void main(String[] args) {
+		// while 반복문
+		
+		System.out.println("----- [1] -----");
+		
+		int n =1;
+		while (n <= 5) {
+			System.out.print(n+" ");
+			n++; // n += 1; , n = n + 1;
+		}
+		System.out.println();
+		
+		int x = 5;
+		
+		System.out.println("----- [2] -----");
+		// 5 4 3 2 1 출력
+		
+		while (x >= 1) {
+			System.out.print(x+" ");
+			x--;
+		}
+		
+		System.out.println();	
+		
+		int y = 1;
+		
+		System.out.println("----- [3] -----");
+		// 1 3 5 7 9 출력
+		
+		while (y <= 9) {
+			System.out.print(y+" ");
+			y = y + 2;
+		}
+
+	} // main
+
+} // class 

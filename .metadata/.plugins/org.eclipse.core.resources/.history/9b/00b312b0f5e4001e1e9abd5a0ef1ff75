@@ -1,0 +1,10 @@
+package com.itwill.switch01;
+
+public class SwitchMain01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,11 @@
+package com.itwill.switch03;
+
+public class SwitchMain03 {
+
+	public static void main(String[] args) {
+		// switch-case 구문에서 enum 사용 방법 
+		
+
+	}
+
+}

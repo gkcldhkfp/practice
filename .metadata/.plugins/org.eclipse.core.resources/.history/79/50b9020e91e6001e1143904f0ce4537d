@@ -1,0 +1,33 @@
+package com.itwill.loop13;
+
+public class LoopMain13 {
+
+	public static void main(String[] args) {
+		// 교재 연습문제 5
+		for (int a = 1; a <= 4; a++) {
+			for (int b = 1; b <= a; b++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+
+		System.out.println("====================");
+
+		// 교재 연습문제 6
+
+		for (int a = 0; a <= 3; a++) {
+			for (int b = 0; b <= 3; b++) {
+				if (a < b) {
+					System.out.print(" ");
+				} else {
+					System.out.print("*");
+				}
+			}
+
+			System.out.println();
+
+		}
+
+	}
+
+}

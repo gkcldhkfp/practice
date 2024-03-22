@@ -1,0 +1,15 @@
+package com.itwill.loop02;
+
+public class LoopMain02 {
+
+	public static void main(String[] args) {
+		// 5 4 3 2 1 출력
+		for(int i = 5; i > 0; i--) { 	// true 일때 실행 false일때 정지
+			System.out.print(i+" ");
+		}
+		
+		System.out.println("");
+
+	}
+
+}
