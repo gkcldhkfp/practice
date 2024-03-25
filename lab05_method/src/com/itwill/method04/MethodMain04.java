@@ -10,7 +10,7 @@ public class MethodMain04 {
 		Random random = new Random();
 
 		int number = random.nextInt(100);
-		System.out.println(number);
+		System.out.println(number); 
 
 		// Ex1. isEven(정수): 정수가 짝수이면 true, 그렇지 않으면 false를 리턴.
 		boolean result = isEven(number);

@@ -10,7 +10,7 @@ public class PrintMain {
 		System.out.println(1 + 2); // 덧셈 결과를 출력
 		System.out.println("1 + 2 = 3");
 		System.out.println("1 + 2 = "+ 1 + 2);
-		System.out.println("1 + 2 = "+ (1 + 2)); 
+		System.out.println("1 + 2 = "+ (1 + 2));  
 
 		System.out.print("안녕하세요 ");
 		System.out.println("Hello");
