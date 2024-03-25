@@ -6,14 +6,14 @@ package com.itwill.method02;
  * - 수식어 생략 가능
  * - 아규먼트를 갖지 않는 메서드는 파라미터를 선언하지 않음.
  * - 메서드의 반환값이 없는 경우에는 리턴타입으로 void를 사용.
- * - 메서드는 클래스 안에서 작성(선언).
+ * - 메서드는 클래스 안에서만 작성(선언).
  * - 다른 메서드 안에서 메서드를 선언할 수 없음!
  */
 
 public class MethodMain02 {
 	
 	public static void main(String[] args) {
-		// 아규먼트가 필요하고 반환값이 메서드 작성 연습:
+		// 아규먼트가 필요하고 반환값이 있는 메서드 작성 연습:
 
 		double result = add (1.0, 2.0); // add 메서드 호출
 		System.out.println(result);

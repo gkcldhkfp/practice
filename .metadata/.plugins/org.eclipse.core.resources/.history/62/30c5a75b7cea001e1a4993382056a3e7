@@ -1,0 +1,10 @@
+package com.itwill.method07;
+
+public class MethodMain07 {
+
+	public static void main(String[] args) {
+		// 가변길이 인수 (variable-lenght argument):
+		// 메서드의 아규먼트 개수가 미리 정해져 있지 않은 경우.
+	}
+
+}

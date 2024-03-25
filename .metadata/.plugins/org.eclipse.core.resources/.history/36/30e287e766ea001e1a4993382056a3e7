@@ -1,0 +1,104 @@
+package com.itwill.method05;
+
+import java.util.Random;
+
+public class MethodMain05 {
+
+	public static void main(String[] args) {
+		// 메서드 호출, 그 결과를 출력:
+		// sum 메서드 호출, 결과 출력.
+		Random random = new Random();
+		int[] array = new int[5];
+
+		System.out.print("array = ");	
+		
+		for (int i = 0; i < array.length; i++) {
+			array[i] = random.nextInt(11);
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
+
+		int a = sum(array);
+
+		System.out.println("sum = "+a);
+
+		double b = mean(array);
+
+		System.out.println("mean = "+b);
+
+		a = max(array);
+
+		System.out.println("max = "+a);
+
+		a = min(array);
+
+		System.out.println("min = "+a);
+
+	}
+
+	/**
+	 * sum. 아규먼트로 전달받은 정수들의 1차원 배열의 모든 원소들의 합을 리턴.
+	 * 
+	 * @param array 정수들의 1차원 배열(int[]).
+	 * @return array의 모든 원소들의 합.
+	 */
+
+	public static int sum(int[] x) {
+		int result = 0;
+		for (int i : x) {
+			result += i;
+		}
+		return result;
+	}
+
+	/**
+	 * mean. 아규먼트로 전달받은 정수들의 1차원 배열 원소들의 평균을 리턴.
+	 * 
+	 * @param array 정수들의 1차원 배열.
+	 * @return array 원소들의 평균을 double 타입으로 리턴.
+	 */
+
+	public static double mean(int[] x) {
+		
+		return sum(x) / (double) x.length;
+
+		
+	}
+
+	/**
+	 * max. 아규먼트로 전달받은 정수들의 1차원 배열 원소들 중 최댓값을 리턴.
+	 * 
+	 * @param array 정수들의 1차원 배열.
+	 * @return array 원소들 중 최댓값을 리턴.
+	 */
+
+	public static int max(int[] x) {
+		int result = 0;
+		for (int i : x) {
+			if (i > result) {
+				result = i;
+			}
+		}
+
+		return result;
+	}
+
+	/**
+	 * min. 아규먼트로 전달받은 정수들의 1차원 배열 원소들 중 최솟값을 리턴.
+	 * 
+	 * @param array 정수들의 1차원 배열.
+	 * @return array 원소들 중 최솟값을 리턴.
+	 */
+
+	public static int min(int[] x) {
+		int result = x[0];
+		for (int i : x) {
+			if (i < result) {
+				result = i;
+			}
+		}
+
+		return result;
+	}
+
+}
