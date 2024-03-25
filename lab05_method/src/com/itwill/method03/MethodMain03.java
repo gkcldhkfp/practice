@@ -9,7 +9,7 @@ public class MethodMain03 {
 
 	}
 
-	// countdown 메서드 작성
+	// countdown 메서드 작성 
 
 	public static void countdown(int x) {
 		if(x <= 0) {

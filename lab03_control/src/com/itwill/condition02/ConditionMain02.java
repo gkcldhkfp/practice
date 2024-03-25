@@ -6,7 +6,7 @@ public class ConditionMain02 {
 
 	public static void main(String[] args) {
 		// 콘솔 창에서 정수 1개를 입력 받고, int 타입 변수에 저장
-		
+		 
 		// 콘솔 창에서 키보드 입력을 저장하는 방법:
 		// (1) 스캐너 타입의 변수를 선언하고, Scanner 객체를 저장. 
 		

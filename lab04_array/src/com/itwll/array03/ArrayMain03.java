@@ -10,8 +10,8 @@ public class ArrayMain03 {
 		// 점수는 난수로 만들고, 배열에 저장. 배열에 저장된 점수들의 합계와 평균을 출력.
 		// Random 타입 변수 선언 & 초기화.
 		Random r = new Random();
-		
-		// int 타입 5개를 저장할 수 있는 배열(scores)을 선언 & 기본값으로 초기화.
+		 
+		// int 타입 5개를 저장할 수 있는 배열 (scores)을 선언 & 기본값으로 초기화.
 		int[] scores = new int[5];
 
 		// for 문을 사용해서 5개의 정수 난수( 0 ~ 10 )를 배열에 저장.
