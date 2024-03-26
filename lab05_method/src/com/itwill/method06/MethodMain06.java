@@ -14,7 +14,7 @@ public class MethodMain06 {
 		System.out.println(true); // println(boolean x)
 
 		newLine();
-		newLine(3);
+		newLine(3); 
 		System.out.println("==============");
 	}
 

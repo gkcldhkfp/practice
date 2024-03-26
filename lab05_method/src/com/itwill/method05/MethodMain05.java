@@ -11,7 +11,7 @@ public class MethodMain05 {
 		int[] array = new int[4];
 
 		System.out.print("array = ");
-
+ 
 		for (int i = 0; i < array.length; i++) {
 			array[i] = random.nextInt(11);
 			System.out.print(array[i] + " ");

@@ -12,7 +12,7 @@ public class MethodMain07 {
 		System.out.printf("%d x %d = %d\n", 2, 3, (2 * 3)); // argument 3개
 
 		int total = addAll();
-		System.out.println("total = " + total);
+		System.out.println("total = " + total); 
 
 		total = addAll(1, 100);
 		System.out.println("total = " + total);
