@@ -11,30 +11,30 @@ package com.itwill.method02;
  */
 
 public class MethodMain02 {
-	
+
 	public static void main(String[] args) {
 		// 아규먼트가 필요하고 반환값이 있는 메서드 작성 연습:
 
-		double result = add (1.0, 2.0); // add 메서드 호출
+		double result = add(1.0, 2.0); // add 메서드 호출
 		System.out.println(result);
-		
+
 		// subtract, multiply, divide 메서드를 호출하고, 그 결과를 출력.
-		
-		double sresult = subtract (1.0, 2.0); 
+
+		double sresult = subtract(1.0, 2.0);
 		System.out.println(sresult);
-		
-		double mresult = multiply (1.0, 2.0); 
-		System.out.println(mresult);
-		
-		double dresult = divide (1.0, 2.0); 
-		System.out.println(dresult);
-		
-		
-		
+
+		double x = 1.0;
+		double y = 2.0;
+
+		System.out.println(multiply(x, y));
+
+		System.out.println(divide(x, y));
+
 	} // end main
-	
+
 	/**
-	 * 숫자 2개를 전달받아서, 두 숫자의 덧셈 결과를 반환. 
+	 * 숫자 2개를 전달받아서, 두 숫자의 덧셈 결과를 반환.
+	 * 
 	 * @param x 실수(double).
 	 * @param y 실수(double).
 	 * @return x + y를 반환.
@@ -42,38 +42,38 @@ public class MethodMain02 {
 	public static double add(double x, double y) {
 		return x + y; // return 문: 메서드를 호출한 곳으로 값을 반환하는 문장.
 	}
-	
-	 /**
-     * subtract.
-     * 숫자 2개를 전달받아서, 두 숫자의 뺄셈 결과를 반환.
-     * @param x 실수(double).
-     * @param y 실수(double).
-     * @return x - y를 반환.
-     */
-    public static double subtract(double x, double y) {
-       return x - y;
-    }
-    
-    /**
-     * multiply.
-     * 숫자 2개를 전달받아서, 두 숫자의 곱셈 결과를 반환.
-     * @param x 실수(double).
-     * @param y 실수(double).
-     * @return x * y를 반환.
-     */
-    public static double multiply(double x, double y) {
-    	return  x * y ;
-    }
-    
-    /**
-     * divide.
-     * 숫자 2개를 전달 받아서 첫번째 아규먼트를 두번째 아규먼트로 나눈 결과를 반환.
-     * @param x 나뉨수.
-     * @param y 나누는 수. 0이 아니어야 함.
-     * @return x / y를 반환.
-     */
-    public static double divide(double x, double y) {
-    	return  x / y ;
-    }
-    
+
+	/**
+	 * subtract. 숫자 2개를 전달받아서, 두 숫자의 뺄셈 결과를 반환.
+	 * 
+	 * @param x 실수(double).
+	 * @param y 실수(double).
+	 * @return x - y를 반환.
+	 */
+	public static double subtract(double x, double y) {
+		return x - y;
+	}
+
+	/**
+	 * multiply. 숫자 2개를 전달받아서, 두 숫자의 곱셈 결과를 반환.
+	 * 
+	 * @param x 실수(double).
+	 * @param y 실수(double).
+	 * @return x * y를 반환.
+	 */
+	public static double multiply(double x, double y) {
+		return x * y;
+	}
+
+	/**
+	 * divide. 숫자 2개를 전달 받아서 첫번째 아규먼트를 두번째 아규먼트로 나눈 결과를 반환.
+	 * 
+	 * @param x 나뉨수.
+	 * @param y 나누는 수. 0이 아니어야 함.
+	 * @return x / y를 반환.
+	 */
+	public static double divide(double x, double y) {
+		return x / y;
+	}
+
 } // end class
