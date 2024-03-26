@@ -12,7 +12,9 @@ public class Student {
     
     public Student(int id, String name, Subject subject) {
     	this.id = id;
+    	
     	this.name = name;
+    	
     	this.subject = subject;
     }
     // TODO 메서드: 학생의 정보(번호, 이름, 각 과목의 점수, 총점, 평균)를 출력.
