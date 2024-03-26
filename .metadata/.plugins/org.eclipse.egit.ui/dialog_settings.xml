@@ -15,19 +15,12 @@
 	</section>
 	<section name="GitCommitMessageComponent">
 		<list key="C:\study\workspace\.git">
-			<item value="false"/>
-			<item value="dh, kim &lt;kds6723@naver.com&gt;"/>
-			<item value="Merge branch &apos;master&apos; of https://github.com/gkcldhkfp/practice.git"/>
-			<item value="dh, kim &lt;kds6723@naver.com&gt;"/>
-			<item value="1653e162f6b98cf86d38e7e2946c06c627c5745c"/>
-			<item value="0"/>
-			<item value="false"/>
-			<item value=""/>
+			<item value="empty"/>
 		</list>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="528"/>
-		<item key="DIALOG_Y_ORIGIN" value="143"/>
+		<item key="DIALOG_X_ORIGIN" value="506"/>
+		<item key="DIALOG_Y_ORIGIN" value="146"/>
 		<item key="DIALOG_WIDTH" value="666"/>
 		<item key="DIALOG_HEIGHT" value="458"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
