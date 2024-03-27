@@ -14,6 +14,9 @@ public class ModifierMain02 {
 	public static void main(String[] args) {
 		// com.itwill.modifier01.AccessExample 타입의 객체를 생성
 		
+		
+		
+		
 //		com.itwill.modifier01.AccessExample ex2 =
 //				new com.itwill.modifier01.AccessExample(1, 20, 3, 4);
 		AccessExample ex = new AccessExample(1, 2, 3, 4);
