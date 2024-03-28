@@ -9,15 +9,15 @@ public class Person {
 		this.age = age;
 	}
 
-	public String getname() {
+	public String getName() {
 		return this.name;
 	}
 
-	public int getage() {
+	public int getAge() {
 		return this.age;
 	}
 
-	public void setage(int age) {
+	public void setAge(int age) {
 		if (age > 0) {
 			this.age = age;
 		}

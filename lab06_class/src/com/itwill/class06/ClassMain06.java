@@ -6,6 +6,7 @@ public class ClassMain06 {
 		// Account 타입 객체 생성
 		
 		Account first = new Account(1, 1000);
+		System.out.println(first);
 		Account second = new Account(2, 50000);
 		
 		// first에 1000 입금

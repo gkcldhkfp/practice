@@ -24,12 +24,12 @@ public class ModifierMain03 {
 
 		Person person = new Person("바나나", 20);
 
-		System.out.println("name = " + person.getname());
-		System.out.println("변경전 age = " + person.getage());
+		System.out.println("name = " + person.getName());
+		System.out.println("변경전 age = " + person.getAge());
 
-		person.setage(25);
+		person.setAge(25);
 
-		System.out.println("변경후 age = " + person.getage());
+		System.out.println("변경후 age = " + person.getAge());
 
 	}
 
