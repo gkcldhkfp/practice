@@ -1,13 +1,13 @@
 package com.itwill.ver01;
 
-// ¿¬¶ôÃ³ µ¥ÀÌÅÍ¸¦ Ç¥ÇöÇÏ´Â Å¬·¡½º.
+// ì—°ë½ì²˜ ë°ì´í„°ë¥¼ í‘œí˜„í•˜ëŠ” í´ë˜ìŠ¤
 public class Contact {
-	// ÇÊµå
+	// field
 	private String name;
 	private String phone;
 	private String email;
 	
-	// »ı¼ºÀÚ(constructor)
+	// ìƒì„±ì(constructor)
 	
 	public Contact() {}
 	
@@ -17,7 +17,7 @@ public class Contact {
 		this.email = email;
 	}
 	
-	// ¸Ş¼­µå
+	// 
 	public String getName() {
 		return this.name;
 	}
@@ -42,7 +42,7 @@ public class Contact {
 		this.email = email;
 	}
 	
-	// ¿¬¶ôÃ³ Á¤º¸(ÀÌ¸§, ÀüÈ­¹øÈ£, ÀÌ¸ŞÀÏ)À» ¹®ÀÚ¿­·Î ¸®ÅÏ
+	// ì—°ë½ì²˜ ì •ë³´(ì´ë¦„, ì „í™”ë²ˆí˜¸, ì´ë©”ì¼)ì„ ë¬¸ìì—´ë¡œ ë¦¬í„´í•˜ëŠ” ë©”ì†Œë“œ
 	
 	public String toString() {
 		return "Contact(name = "+ this.name 

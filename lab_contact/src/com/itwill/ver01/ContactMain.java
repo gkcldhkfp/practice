@@ -3,18 +3,18 @@ package com.itwill.ver01;
 import java.util.Scanner;
 
 public class ContactMain {
-	private static final int MAX_LENGTH = 3; // ¿¬¶ôÃ³ ¹è¿­ÀÇ ÃÖ´ë ±æÀÌ(¿ø¼Ò°³¼ö)
+	private static final int MAX_LENGTH = 3; // ì—°ë½ì²˜ ë°°ì—´ì˜ ìµœëŒ€ ê¸¸ì´(ì›ì†Œê°œìˆ˜)
 
 	private Scanner scanner = new Scanner(System.in);
-	private Contact[] contacts = new Contact[MAX_LENGTH]; // ¿¬¶ôÃ³¸¦ ÀúÀåÇÏ±â À§ÇÑ ¹è¿­
-	private int count = 0; // ÇöÀç±îÁö ¿¬¶ôÃ³ ¹è¿­¿¡ ÀúÀåµÈ °³¼ö.
-	// ¹è¿­¿¡ »õ·Î¿î ¿¬¶ôÃ³°¡ ÀúÀåµÉ ¶§¸¶´Ù count++À» ½ÇÇà.
+	private Contact[] contacts = new Contact[MAX_LENGTH]; // ì—°ë½ì²˜ë¥¼ ì €ì¥í•˜ê¸° ìœ„í•œ ë°°ì—´
+	private int count = 0; // í˜„ì¬ê¹Œì§€ ì—°ë½ì²˜ ë°°ì—´ì— ì €ì¥ëœ ê°œìˆ˜.
+	// ë°°ì—´ì— ìƒˆë¡œìš´ ì—°ë½ì²˜ê°€ ì €ì¥ë  ë•Œë§ˆë‹¤ count++ì„ ì‹¤í–‰.
 
 	public static void main(String[] args) {
 
-		System.out.println("*** ¿¬¶ôÃ³ ÇÁ·Î±×·¥ v0.1");
+		System.out.println("*** ì—°ë½ì²˜ í”„ë¡œê·¸ë¨ v0.1");
 
-		boolean run = true; // ÇÁ·Î±×·¥ °è¼Ó ½ÇÇà(run=true) ¶Ç´Â Á¾·á(run=false) ¿©ºÎ¸¦ ÀúÀåÇÏ±â À§ÇÑ º¯¼ö.
+		boolean run = true; // í”„ë¡œê·¸ë¨ ê³„ì† ì‹¤í–‰(run=true) ë˜ëŠ” ì¢…ë£Œ(run=false) ì—¬ë¶€ë¥¼ ì €ì¥í•˜ê¸° ìœ„í•œ ë³€ìˆ˜.
 
 		ContactMain app = new ContactMain();
 
@@ -43,103 +43,116 @@ public class ContactMain {
 				break;
 
 			default:
-				System.out.println("¸Ş´º ¹øÈ£¸¦ È®ÀÎÇÏ¼¼¿ä.");
+				System.out.println("ë©”ë‰´ ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì„¸ìš”.");
 			}
 		}
 
-		System.out.println("*** ÇÁ·Î±×·¥ Á¾·á ***");
+		System.out.println("*** í”„ë¡œê·¸ë¨ ì¢…ë£Œ ***");
 	}
 
 	private void updataContactByIndex() {
-		System.out.println("\n----- ¿¬¶ôÃ³ ¼öÁ¤ -----");
+		System.out.println("\n----- ì—°ë½ì²˜ ìˆ˜ì • -----");
 
 		this.readAllContacts();
 		System.out.println();
-		
-		System.out.print("ÀÎµ¦½º ÀÔ·Â>> ");
+
+		System.out.print("ì¸ë±ìŠ¤ ì…ë ¥>> ");
 		int index = Integer.parseInt(scanner.nextLine());
 
-		if (index < count) {
+		if (index < count && 0 <= index) {
 
-			System.out.println("¼öÁ¤Àü: " + contacts[index]);
+			System.out.println("ìˆ˜ì •ì „: " + contacts[index].toString());
 
-			System.out.print("ÀÌ¸§ ¼öÁ¤>> ");
+			System.out.print("ì´ë¦„ ìˆ˜ì •>> ");
 			String name = scanner.nextLine();
 
-			System.out.print("ÀüÈ­¹øÈ£ ¼öÁ¤>> ");
+			System.out.print("ì „í™”ë²ˆí˜¸ ìˆ˜ì •>> ");
 			String phone = scanner.nextLine();
 
-			System.out.print("ÀÌ¸ŞÀÏ ¼öÁ¤>> ");
+			System.out.print("ì´ë©”ì¼ ìˆ˜ì •>> ");
 			String email = scanner.nextLine();
 
-			// ÀÔ·ÂÇÑ ³»¿ëÀ¸·Î ¹è¿­ÀÇ ³»¿ëÀ» ¾÷µ¥ÀÌÆ®.
+			// ì…ë ¥í•œ ë‚´ìš©ìœ¼ë¡œ ë°°ì—´ì˜ ë‚´ìš©ì„ ì—…ë°ì´íŠ¸.
 			contacts[index].setPhone(phone);
 			contacts[index].setName(name);
 			contacts[index].setEmail(email);
-			
-		} else if (MAX_LENGTH < index) {
-			
-			System.out.println("Á¸ÀçÇÏÁö ¾Ê´Â index ÀÔ´Ï´Ù");
-			
+
+//			contacts[index] = new Contact(name, phone, email);
+
+			System.out.println("ìˆ˜ì •í›„: " + contacts[index].toString());
+
+		} else if (MAX_LENGTH <= index) {
+
+			System.out.println("ì¡´ì¬í•˜ì§€ ì•ŠëŠ” index ì…ë‹ˆë‹¤");
+
 		} else {
-			
-			System.out.println("ÇØ´ç ÀÎµ¦½º´Â ºñ¾îÀÖ½À´Ï´Ù.");
-			
+
+			System.out.println("í•´ë‹¹ ì¸ë±ìŠ¤ëŠ” ë¹„ì–´ìˆìŠµë‹ˆë‹¤.");
+
 		}
 	}
 
 	private void readContactByIndex() {
-		System.out.println("\n--- ÀÎµ¦½º °Ë»ö ---");
-		System.out.print("ÀÎµ¦½º ÀÔ·Â>>");
+		System.out.println("\n--- ì¸ë±ìŠ¤ ê²€ìƒ‰ ---");
+		System.out.print("ì¸ë±ìŠ¤ ì…ë ¥>>");
 		int index = Integer.parseInt(scanner.nextLine());
 
-		// ÇØ´ç ÀÎµ¦½ºÀÇ ¿¬¶ôÃ³¸¦ Ãâ·Â
-		if (index < count) {
+		// í•´ë‹¹ ì¸ë±ìŠ¤ì˜ ì—°ë½ì²˜ë¥¼ ì¶œë ¥
+		if (index < count && 0 <= index) {
 			System.out.println(contacts[index].toString());
-		} else if (MAX_LENGTH < index) {
-			System.out.println("Á¸ÀçÇÏÁö ¾Ê´Â index ÀÔ´Ï´Ù");
+		} else if (MAX_LENGTH <= index || index < 0) {
+			System.out.println("ì¡´ì¬í•˜ì§€ ì•ŠëŠ” index ì…ë‹ˆë‹¤");
 		} else {
-			System.out.println("ÇØ´ç ÀÎµ¦½º´Â ºñ¾îÀÖ½À´Ï´Ù.");
+			System.out.println("í•´ë‹¹ ì¸ë±ìŠ¤ëŠ” ë¹„ì–´ìˆìŠµë‹ˆë‹¤.");
 		}
 	}
 
 	private void readAllContacts() {
-		System.out.println("\n--- ¿¬¶ôÃ³ ¸ñ·Ï ---");
-
+		System.out.println("\n--- ì—°ë½ì²˜ ëª©ë¡ ---");
+		// ì¸ë±ìŠ¤ 0ë²ˆë¶€í„° í˜„ì¬ ì €ì¥ëœ ì—°ë½ì²˜ ê°œìˆ˜(count)ë³´ë‹¤ ì‘ì„ ë•Œê¹Œì§€
 		for (int i = 0; i < count; i++) {
-			System.out.println("["+ i +"] "+contacts[i].toString());
+			System.out.println("[" + i + "] " + contacts[i].toString());
 		}
 	}
 
 	private void saveNewContact() {
 		if (count < MAX_LENGTH) {
-			System.out.println("\n--- »õ ¿¬¶ôÃ³ ÀúÀå ---");
+			System.out.println("\n--- ìƒˆ ì—°ë½ì²˜ ì €ì¥ ---");
 
-			System.out.print("ÀÌ¸§ ÀÔ·Â>> ");
+			// ë°°ì—´ì— ì €ì¥ëœ ì—°ë½ì²˜ ê°œìˆ˜(count)ê°€ ë°°ì—´ ìµœëŒ€ ê¸¸ì´ì™€ ê°™ë‹¤ë©´ ì €ì¥ ê¸°ëŠ¥ì„ ì¢…ë£Œ
+//		if(count == MAX_LENGTH) {
+//			System.out.println("ì €ì¥ ê³µê°„ì´ ë¶€ì¡±í•©ë‹ˆë‹¤");
+//			return;
+//		}
+
+			System.out.print("ì´ë¦„ ì…ë ¥>> ");
 			String name = scanner.nextLine();
 
-			System.out.print("ÀüÈ­¹øÈ£ ÀÔ·Â>> ");
+			System.out.print("ì „í™”ë²ˆí˜¸ ì…ë ¥>> ");
 			String phone = scanner.nextLine();
 
-			System.out.print("ÀÌ¸ŞÀÏ ÀÔ·Â>> ");
+			System.out.print("ì´ë©”ì¼ ì…ë ¥>> ");
 			String email = scanner.nextLine();
 
 			Contact contact = new Contact(name, phone, email);
 
-			// Contact Å¸ÀÔ °´Ã¼¸¦ ¿¬¶ôÃ³ ¹è¿­ ÀÎµ¦½º count¿¡ ÀúÀå
+			// Contact íƒ€ì… ê°ì²´ë¥¼ ì—°ë½ì²˜ ë°°ì—´ ì¸ë±ìŠ¤ countì— ì €ì¥
 			contacts[count] = contact;
-			// ¹è¿­¿¡ ÀúÀå ÈÄ¿¡´Â ¿¬¶ôÃ³ ÀúÀå °³¼ö(ÀÎµ¦½º)¸¦ Áõ°¡
+			// ë°°ì—´ì— ì €ì¥ í›„ì—ëŠ” ì—°ë½ì²˜ ì €ì¥ ê°œìˆ˜(ì¸ë±ìŠ¤)ë¥¼ ì¦ê°€
 			count++;
+
+			System.out.println("ì—°ë½ì²˜ ì €ì¥ ì„±ê³µ");
+			
 		} else {
-			System.out.println("ÀúÀå °ø°£ÀÌ ºÎÁ·ÇÕ´Ï´Ù");
+			System.out.println("ì €ì¥ ê³µê°„ì´ ë¶€ì¡±í•©ë‹ˆë‹¤");
 		}
 	}
 
 	private int showMainMenu() {
 		System.out.println("\n---------------------------------------");
-		System.out.println("[0]Á¾·á [1]ÀúÀå [2]¸ñ·Ï [3]ÀÎµ¦½º°Ë»ö [4]¼öÁ¤");
+		System.out.println("[0]ì¢…ë£Œ [1]ì €ì¥ [2]ëª©ë¡ [3]ì¸ë±ìŠ¤ê²€ìƒ‰ [4]ìˆ˜ì •");
 		System.out.println("---------------------------------------");
-		System.out.print("¼±ÅÃ> ");
+		System.out.print("ì„ íƒ> ");
 
 		int menu = Integer.parseInt(scanner.nextLine());
 
