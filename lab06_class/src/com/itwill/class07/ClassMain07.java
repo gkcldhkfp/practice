@@ -2,20 +2,20 @@ package com.itwill.class07;
 
 public class ClassMain07 {
 
-	public static void main(String[] args) {
-		// ThisTest °´Ã¼¸¦ ¿©·¯°¡Áö »ı¼ºÀÚµéÀ» ÀÌ¿ëÇØ¼­ »ı¼º
-		ThisTest test1 = new ThisTest();
-		test1.info();
+    public static void main(String[] args) {
+        // ThisTest ê°ì²´ë¥¼ ì—¬ëŸ¬ê°€ì§€ ìƒì„±ìë“¤ì„ ì´ìš©í•´ì„œ ìƒì„±
+        ThisTest test1 = new ThisTest();
+        test1.info();
+        
+        ThisTest test2 = new ThisTest(1);
+        test2.info();
+        
+        ThisTest test3 = new ThisTest(1, 20);
+        test3.info();
+        
+        ThisTest test4 = new ThisTest(1, 20, 300);
+        test4.info();
 
-		ThisTest test2 = new ThisTest(1);
-		test2.info();
-
-		ThisTest test3 = new ThisTest(1, 20);
-		test3.info();
-
-		ThisTest test4 = new ThisTest(1, 20, 300);
-		test4.info();
-
-	}
+    }
 
 }

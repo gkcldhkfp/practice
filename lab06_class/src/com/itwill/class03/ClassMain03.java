@@ -1,20 +1,21 @@
 package com.itwill.class03;
 
 public class ClassMain03 {
-
-	public static void main(String[] args) {
-		// person Å¸ÀÔÀÇ °´Ã¼¸¦ ±âº» »ı¼ºÀÚ¸¦ È£ÃâÇØ¼­ »ı¼º
-		Person p1 = new Person();
-		System.out.println(p1.name);	//-> null
-		System.out.println(p1.age);		//-> 0 
-		
-		p1.name = "¿À½Ü";
-		p1.age = 16;
-		p1.introduce();
-		
-		// ¾Æ±Ô¸ÕÆ®¸¦ °®´Â »ı¼ºÀÚ¸¦ È£ÃâÇØ¼­ Person Å¸ÀÔ °´Ã¼¸¦ »ı¼º
-		Person p2 = new Person("È«±æµ¿", 20);
-		p2.introduce();
-	}
+    
+    public static void main(String[] args) {
+        // Person íƒ€ì…ì˜ ê°ì²´ë¥¼ ê¸°ë³¸ ìƒì„±ìë¥¼ í˜¸ì¶œí•´ì„œ ìƒì„±
+        Person p1 = new Person();
+        System.out.println(p1.name); //-> null
+        System.out.println(p1.age); //-> 0
+        
+        p1.name = "ì˜¤ìŒ¤";
+        p1.age = 16;
+        p1.introduce();
+        
+        // ì•„ê·œë¨¼íŠ¸ë¥¼ ê°–ëŠ” ìƒì„±ìë¥¼ í˜¸ì¶œí•´ì„œ Person íƒ€ì… ê°ì²´ë¥¼ ìƒì„±
+        Person p2 = new Person("í™ê¸¸ë™", 20);
+        p2.introduce();
+        
+    }
 
 }

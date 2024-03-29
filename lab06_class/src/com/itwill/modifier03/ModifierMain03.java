@@ -1,36 +1,31 @@
 package com.itwill.modifier03;
 
 /*
- * µ¥ÀÌÅÍ Ä¸½¶È­(encapsulation):
- * ÇÊµåµéÀ» privateÀ¸·Î ¼±¾ğÇØ¼­ Å¬·¡½º ¿ÜºÎ¿¡¼­´Â º¸ÀÌÁö ¾Êµµ·Ï(Á÷Á¢ Á¢±ÙÇÒ ¼ö ¾øµµ·Ï) °¨Ãß°í,
- * ´ë½Å¿¡ ÇÊ¿äÇÑ °æ¿ì¿¡ ÇÑÇØ¼­ publicÀ¸·Î °ø°³ÇÑ ¸Ş¼­µå¸¦ Á¦°øÇØ¼­
- * °£Á¢ÀûÀ¸·Î ÇÊµåµéÀÇ °ªÀ» ÀĞ°Å³ª ¼öÁ¤ÇÏ´Â °ÍÀ» Çã¿ëÇÏ´Â °´Ã¼ÁöÇâ ÇÁ·Î±×·¡¹Ö ±â¹ı.
- * µ¥ÀÌÅÍÀÇ º¸¾È°ú ¹«°á¼ºÀ» À¯ÁöÇÏ±â À§ÇØ¼­ Ä¸½¶È­¸¦ »ç¿ë.
- * getter ¸Ş¼­µå: private ÇÊµåÀÇ °ªÀ» ¸®ÅÏÇÏ´Â ¸Ş¼­µå. args x return o
- * setter ¸Ş¼­µå: private ÇÊµåÀÇ °ªÀ» º¯°æÇÏ´Â ¸Ş¼­µå. args o return x
+ * ë°ì´í„° ìº¡ìŠí™”(encapsulation):
+ * í•„ë“œë“¤ì„ privateìœ¼ë¡œ ì„ ì–¸í•´ì„œ í´ë˜ìŠ¤ ì™¸ë¶€ì—ì„œëŠ” ë³´ì´ì§€ ì•Šë„ë¡(ì§ì ‘ ì ‘ê·¼í•  ìˆ˜ ì—†ë„ë¡) ê°ì¶”ê³ ,
+ * ëŒ€ì‹ ì— í•„ìš”í•œ ê²½ìš°ì— í•œí•´ì„œ publicìœ¼ë¡œ ê³µê°œí•œ ë©”ì„œë“œë¥¼ ì œê³µí•´ì„œ
+ * ê°„ì ‘ì ìœ¼ë¡œ í•„ë“œë“¤ì˜ ê°’ì„ ì½ê±°ë‚˜ ìˆ˜ì •í•˜ëŠ” ê²ƒì„ í—ˆìš©í•˜ëŠ” ê°ì²´ì§€í–¥ í”„ë¡œê·¸ë˜ë° ê¸°ë²•.
+ * ë°ì´í„°ì˜ ë³´ì•ˆê³¼ ë¬´ê²°ì„±ì„ ìœ ì§€í•˜ê¸° ìœ„í•´ì„œ ìº¡ìŠí™”ë¥¼ ì‚¬ìš©.
+ * getter ë©”ì„œë“œ: private í•„ë“œì˜ ê°’ì„ ë¦¬í„´í•˜ëŠ” ë©”ì„œë“œ.
+ * setter ë©”ì„œë“œ: private í•„ë“œì˜ ê°’ì„ ë³€ê²½í•˜ëŠ” ë©”ì„œë“œ.
  */
 
 public class ModifierMain03 {
 
-	public static void main(String[] args) {
-		// Member Å¸ÀÔ °´Ã¼ »ı¼º
-		Member member = new Member("guest", "1234");
-		System.out.println("ID: " + member.getMemberId());
-		System.out.println("º¯°æÀü PW: " + member.getMemberPassword());
-		member.setMemberPassword("531");
-		System.out.println("º¯°æÈÄ PW: " + member.getMemberPassword());
-		
-		System.out.println("============================================");
+    public static void main(String[] args) {
+        // Member íƒ€ì… ê°ì²´ ìƒì„±
+        Member member = new Member("guest", "1234");
+        System.out.println("ID: " + member.getMemberId());
+        System.out.println("ë³€ê²½ì „ PW: " + member.getMemberPassword());
+        member.setMemberPassword(null);
+        System.out.println("ë³€ê²½í›„ PW: " + member.getMemberPassword());
 
-		Person person = new Person("¹Ù³ª³ª", 20);
-
-		System.out.println("name = " + person.getName());
-		System.out.println("º¯°æÀü age = " + person.getAge());
-
-		person.setAge(25);
-
-		System.out.println("º¯°æÈÄ age = " + person.getAge());
-
-	}
+        Person p = new Person("ì˜¤ìŒ¤", 16);
+        System.out.println("name: " + p.getName());
+        System.out.println("age: " + p.getAge());
+        p.setAge(17);
+        System.out.println("age: " + p.getAge());
+        
+    }
 
 }

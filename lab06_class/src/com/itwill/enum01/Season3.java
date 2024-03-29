@@ -1,22 +1,20 @@
 package com.itwill.enum01;
 
-// enum ÄÚµåÀÇ µ¶ÇØ·ÂÀ» ´Ã¸®°í Å¬·¡½º Å¸ÀÔÀÇ »ó¼ö ¼±¾ğÀÇ ¹İº¹À» ÁÙÀÌ°í °´Ã¼ »ı¼ºÀ» ¸·¾ÆÁÖ´Â ±â´É
-
 public enum Season3 {
-	SPRING("º½"), SUMMER("¿©¸§"), FALL("°¡À»"), WINTER("°Ü¿ï") ;
-	
-	private String name;
-	
-	private Season3() {}
-	
-	private Season3(String name) {
-		this.name = name;
-	}
-	
-	
-	// enumÀÇ »ı¼ºÀÚÀÇ Á¢±Ù ¼ö½Ä¾î´Â private¸¸ »ç¿ë °¡´É. privateÀº »ı·« °¡´É. 
-	public String getName() {
-		return this.name;
-	}
-	
-}	
+    SPRING("ë´„"),
+    SUMMER("ì—¬ë¦„"),
+    FALL("ê°€ì„"),
+    WINTER("ê²¨ìš¸");
+
+    private String name;
+    
+    // enumì˜ ìƒì„±ìì˜ ì ‘ê·¼ ìˆ˜ì‹ì–´ëŠ” privateë§Œ ì‚¬ìš© ê°€ëŠ¥. privateì€ ìƒëµ ê°€ëŠ¥.
+    Season3(String name) {
+        this.name = name;
+    }
+    
+    public String getName() {
+        return this.name;
+    }
+    
+}

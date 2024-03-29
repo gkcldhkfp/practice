@@ -2,45 +2,40 @@ package com.itwill.enum01;
 
 public class TestMain {
 
-	public static void main(String[] args) {
-		int season = Season1.SPRING;
-		switch(season) {
-		
-		case Season1.SPRING :
-			System.out.println("∫Ω");
-			break;
-		
-		case Season1.SUMMER :
-			System.out.println("ø©∏ß");
-			break;
-		
-		case Season1.FALL :
-			System.out.println("∞°¿ª");
-			break;
-		
-		case Season1.WINTER :
-			System.out.println("∞‹øÔ");
-			break;
-		
-		default :
-			System.out.println("¿ÃªÛ±‚»ƒ");
-		
-		}
-		
-	
-		Season2 season2 = Season2.SPRING;
-		if(season2 == Season2.SPRING) {
-			System.out.println(season2.getName());
-		} else if(season2 == Season2.SUMMER){
-			System.out.println("ø©∏ß");
-		} else {
-			System.out.println("...");
-		}
-		
-		Season3 season3 = Season3.SPRING;
-		System.out.println(season3);
-		System.out.println(season3.getName());
+    public static void main(String[] args) {
+        
+        int x = 100;
+        switch (x) {
+        case Season1.SPRING:
+            System.out.println("Î¥Ñ");
+            break;
+        case Season1.SUMMER:
+            System.out.println("Ïó¨Î¶Ñ");
+            break;
+        case Season1.FALL:
+            System.out.println("Í∞ÄÏùÑ");
+            break;
+        case Season1.WINTER:
+            System.out.println("Í≤®Ïö∏");
+            break;
+        default:
+            System.out.println("Ïù¥ÏÉÅÍ∏∞ÌõÑ");
+        }
+        
+        Season2 season2 = Season2.SPRING;
+        System.out.println(season2);
+        if (season2 == Season2.SPRING) {
+            System.out.println("Î¥Ñ");
+        } else if (season2 == Season2.SUMMER) {
+            System.out.println("Ïó¨Î¶Ñ");
+        } else {
+            System.out.println("...");
+        }
 
-	}
+        Season3 season3 = Season3.SPRING;
+        System.out.println(season3);
+        System.out.println(season3.getName());
+        
+    }
 
 }

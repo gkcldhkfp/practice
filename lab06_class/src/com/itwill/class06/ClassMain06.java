@@ -2,30 +2,32 @@ package com.itwill.class06;
 
 public class ClassMain06 {
 
-	public static void main(String[] args) {
-		// Account Å¸ÀÔ °´Ã¼ »ı¼º
-		
-		Account first = new Account(1, 1000);
-		System.out.println(first);
-		Account second = new Account(2, 50000);
-		
-		// first¿¡ 1000 ÀÔ±İ
-		
-		first.deposit(1000);
-		first.info();
-		
-		// first¿¡¼­ 2000 Ãâ±İ
-		
-		first.withdraw(2000);
-		first.info();
-		
-		// second¿¡¼­ first·Î 5000 ¼Û±İ
-		second.transfer(first, 5000);
-		
-		first.info();
-		
-		second.info();
-		
-	}
+    public static void main(String[] args) {
+        // Account íƒ€ì… ê°ì²´ ìƒì„±
+        Account account1 = new Account(123456, 1000);
+        account1.info();
+        
+        Account account2 = new Account(123789, 10000);
+        account2.info();
+        
+        // account1 ê³„ì¢Œì— 10,000ì› ì…ê¸ˆ
+        int result = account1.deposit(10_000);
+        System.out.println("ì…ê¸ˆ í›„ ì”ì•¡: " + result);
+        
+        // account1 ê³„ì¢Œì—ì„œ 5,000ì› ì¶œê¸ˆ
+        account1.withdraw(5_000);
+        account1.info();
+        
+        // account1ì—ì„œ account2ìœ¼ë¡œ 2,000ì› ì´ì²´
+        account1.transfer(account2, 2_000);
+        account1.info();
+        account2.info();
+        
+        // account2ì—ì„œ account1ìœ¼ë¡œ 10,000ì› ì´ì²´
+        account2.transfer(account1, 10_000);
+        account1.info();
+        account2.info();
+
+    }
 
 }

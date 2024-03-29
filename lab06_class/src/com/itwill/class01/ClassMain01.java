@@ -1,29 +1,28 @@
 package com.itwill.class01;
 
-
 /*
- *  °´Ã¼ÁöÇâ ÇÁ·Î±×·¡¹Ö ¾ğ¾î(Object-Orienter Programming Language): Java, C++, C#, Kotlin, ...
- *  ÀıÂ÷ÁöÇâ ÇÁ·Î±×·¡¹Ö ¾ğ¾î(Procedural Programming Language): C, ...
- *  
- *  °´Ã¼(Object): ´ë»ó. ÇÁ·Î±×·¥¿¡¼­ »ç¿ëÇÏ·Á°í ÇÏ´Â ´ë»ó.
- *  Å¬·¡½º(class): °´Ã¼ ¼³°èµµ. °´Ã¼¸¦ ¸¸µé±â À§ÇØ¼­ ÇÊ¿äÇÑ ÄÚµå.
- *  - °´Ã¼°¡ °¡Á®¾ß ÇÏ´Â "µ¥ÀÌÅÍ"¸¦ º¯¼ö("ÇÊµå")·Î ¼±¾ğÇÏ°í,
- *  - °´Ã¼°¡ °¡Á®¾ß ÇÏ´Â "±â´É"À» ¸Ş¼­µå·Î ¼±¾ğÇÏ´Â ÄÚµå
- *  - º¯¼ö¸¦ ¼±¾ğÇÒ ¶§ »ç¿ëÇÒ ¼ö ÀÖ´Â µ¥ÀÌÅÍ Å¸ÀÔ.
- *  ÀÎ½ºÅÏ½º(Instance): ½ÇÁ¦·Î »ı¼ºµÈ °´Ã¼.
+ * ê°ì²´ì§€í–¥ í”„ë¡œê·¸ë˜ë° ì–¸ì–´(Object-Oriented Programming Language): Java, C++, C#, Kotlin, ...
+ * ì ˆì°¨ì§€í–¥ í”„ë¡œê·¸ë˜ë° ì–¸ì–´(Procedural Programming Language): C, ...
+ * 
+ * ê°ì²´(Object): ëŒ€ìƒ. í”„ë¡œê·¸ë¨ì—ì„œ ì‚¬ìš©í•˜ë ¤ê³  í•˜ëŠ” ëŒ€ìƒ.
+ * í´ë˜ìŠ¤(Class): ê°ì²´ ì„¤ê³„ë„. ê°ì²´ë¥¼ ë§Œë“¤ê¸° ìœ„í•´ì„œ í•„ìš”í•œ ì½”ë“œ.
+ * - ê°ì²´ê°€ ê°€ì ¸ì•¼ í•˜ëŠ” "ë°ì´í„°"ë¥¼ ë³€ìˆ˜("í•„ë“œ")ë¡œ ì„ ì–¸í•˜ê³ ,
+ * - ê°ì²´ê°€ ê°€ì ¸ì•¼ í•˜ëŠ” "ê¸°ëŠ¥"ì„ "ë©”ì„œë“œ"ë¡œ ì„ ì–¸í•˜ëŠ” ì½”ë“œ.
+ * - ë³€ìˆ˜ë¥¼ ì„ ì–¸í•  ë•Œ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ë°ì´í„° íƒ€ì….
+ * ì¸ìŠ¤í„´ìŠ¤(Instance): ì‹¤ì œë¡œ ìƒì„±ëœ ê°ì²´.
  */
 
 public class ClassMain01 {
 
-	public static void main(String[] args) {
-		String s1 = "¾È³çÇÏ¼¼¿ä!";
-		System.out.println("length1: "+ s1.length()); //lenhtg() : ¹®ÀÚ¿­ °´Ã¼ÀÇ ±â´É(¸Ş¼­µå) 
-		System.out.println("concat1: " + s1.concat("ºñ°¡ ¿À³×¿ä..."));
+    public static void main(String[] args) {
+        String s1 = "ì•ˆë…•í•˜ì„¸ìš”!"; // ë¬¸ìì—´ ê°ì²´
+        System.out.println("s1 length: " + s1.length()); // length(): ë¬¸ìì—´ ê°ì²´ì˜ ê¸°ëŠ¥(ë©”ì„œë“œ)
+        System.out.println("s1 concat: " + s1.concat("ë¹„ê°€ ì˜¤ë„¤ìš”..."));
 
-		String s2 = new String("Hello");
-		System.out.println("length2: "+ s2.length());
-		System.out.println("concat2: " + s2.concat("Java"));
-		
-	}
+        String s2 = new String("Hello");
+        System.out.println("s2 length: " + s2.length());
+        System.out.println("s2 concat: " + s2.concat("Java"));
+        
+    }
 
 }

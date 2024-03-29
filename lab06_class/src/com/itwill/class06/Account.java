@@ -1,66 +1,65 @@
 package com.itwill.class06;
 
 /**
- * ÀºÇà °èÁÂ Á¤º¸. ¼Ó¼º: °èÁÂ ¹øÈ£, ÀÜ°í. ±â´É: ÀÔ±İ, Ãâ±İ, ÀÌÃ¼, Á¤º¸ Ãâ·Â.
+ * ì€í–‰ ê³„ì¢Œ ì •ë³´.
+ * ì†ì„±: ê³„ì¢Œ ë²ˆí˜¸, ì”ê³ .
+ * ê¸°ëŠ¥: ì…ê¸ˆ, ì¶œê¸ˆ, ì´ì²´, ì •ë³´ ì¶œë ¥.
  */
 public class Account {
-	// field
-	int accountNo; // °èÁÂ ¹øÈ£
-	int balance; // ÀÜ°í
-
-	// constructor: ¾Æ±Ô¸ÕÆ® 2°³¸¦ °®´Â »ı¼ºÀÚ
-	public Account(int accountNo, int balance) {
-		this.accountNo = accountNo;
-		this.balance = balance;
-	}
-	// method ÀÔ±İ
-	/**
-	 * deposit(ÀÔ±İ). ÇöÀç ÀÜ°í¿¡ ÀÔ±İ¾×À» ´õÇÏ°í, ÀÔ±İ ÈÄÀÇ ÀÜ¾×À» ¸®ÅÏ.
-	 * 
-	 * @param amount ÀÔ±İ¾×(int)
-	 * @return ÀÔ±İ ÈÄ ÀÜ°í(balance)
-	 */
-	public int deposit(int amount) {
-		return balance += amount;
-	}
-
-	/**
-	 * withdraw(Ãâ±İ). ÇöÀç ÀÜ°í¿¡¼­ Ãâ±İ¾×À» »©°í, Ãâ±İ ÈÄÀÇ ÀÜ°í¸¦ ¸®ÅÏ.
-	 * 
-	 * @param amount Ãâ±İ¾×(int)
-	 * @return Ãâ±İ ÈÄ ÀÜ°í(balance)
-	 */
-	public int withdraw(int amount) {
-		return balance -= amount;
-	}
-
-	/**
-	 * transfer(ÀÌÃ¼). ³» °èÁÂÀÇ ÀÜ°í¿¡¼­´Â ÀÌÃ¼±İ¾× amount¸¦ »©°í, ÀÌÃ¼ÇÒ °èÁÂ toÀÇ ÀÜ°í¿¡¼­´Â amount¸¦ ´õÇÔ.
-	 * 
-	 * @param to     ÀÌÃ¼ÇÒ °èÁÂ(Account).
-	 * @param amount ÀÌÃ¼ÇÒ ±İ¾×(int).
-	 * @return true
-	 */
-	public boolean transfer(Account to, int amount) {
-//		to.deposit(amount);
-//		this.withdraw(amount);
-		
-		to.balance += amount;
-		
-		balance -= amount;
-			
-		return true;
-	}
-
-	/**
-	 * °èÁÂ Á¤º¸ Ãâ·Â
-	 */
-	public void info() {
-		System.out.println("--- °èÁÂ Á¤º¸ ---");
-		System.out.println("°ÔÁÂ ¹øÈ£: " + accountNo);
-		System.out.println("ÀÜ°í: " + balance);
-		System.out.println("---------------");
-
-	}
-
+    // field
+    int accountNo; // ê³„ì¢Œ ë²ˆí˜¸
+    int balance; // ì”ê³ 
+    
+    // constructor: ì•„ê·œë¨¼íŠ¸ 2ê°œë¥¼ ê°–ëŠ” ìƒì„±ì
+    public Account(int accountNo, int balance) {
+        this.accountNo = accountNo;
+        this.balance = balance;
+    }
+    
+    // method
+    /**
+     * deposit(ì…ê¸ˆ). í˜„ì¬ ì”ê³ ì— ì…ê¸ˆì•¡ì„ ë”í•˜ê³ , ì…ê¸ˆ í›„ì˜ ì”ê³ ë¥¼ ë¦¬í„´.
+     * @param amount ì…ê¸ˆì•¡(int).
+     * @return ì…ê¸ˆ í›„ ì”ê³ (balance).
+     */
+    public int deposit(int amount) {
+        this.balance += amount; // balance = balance + amount;
+        return this.balance;
+    }
+    
+    /**
+     * withdraw(ì¶œê¸ˆ). í˜„ì¬ ì”ê³ ì—ì„œ ì¶œê¸ˆì•¡ì„ ë¹¼ê³ , ì¶œê¸ˆ í›„ì˜ ì”ê³ ë¥¼ ë¦¬í„´.
+     * @param amount ì¶œê¸ˆì•¡(int).
+     * @return ì¶œê¸ˆ í›„ ì”ê³ .
+     */
+    public int withdraw(int amount) {
+        this.balance -= amount;
+        return this.balance;
+    }
+    
+    /**
+     * transfer(ì´ì²´). ë‚´ ê³„ì¢Œì—ì„œì˜ ì”ê³ ì—ì„œëŠ” ì´ì²´ê¸ˆì•¡ amountë¥¼ ë¹¼ê³ , 
+     * ì´ì²´í•  ê³„ì¢Œ toì˜ ì”ê³ ì—ì„œëŠ” ì´ì²´ê¸ˆì•¡ amountë¥¼ ë”í•¨.
+     * @param to ì´ì²´í•  ê³„ì¢Œ(Account íƒ€ì…).
+     * @param amount ì´ì²´í•  ê¸ˆì•¡.
+     * @return true.
+     */
+    public boolean transfer(Account to, int amount) {
+        //this.balance -= amount; // ë‚´ ê³„ì¢Œì—ì„œ ì¶œê¸ˆ
+        this.withdraw(amount);
+        //to.balance += amount; // ìƒëŒ€ë°© ê³„ì¢Œì— ì…ê¸ˆ
+        to.deposit(amount);
+        
+        return true;
+    }
+    
+    /**
+     * ê³„ì¢Œ ì •ë³´ ì¶œë ¥
+     */
+    public void info() {
+        System.out.println("--- ê³„ì¢Œ ì •ë³´ ---");
+        System.out.println("ê³„ì¢Œ ë²ˆí˜¸: " + accountNo);
+        System.out.println("ì”ê³ : " + balance);
+        System.out.println("-----------------");
+    }
 }

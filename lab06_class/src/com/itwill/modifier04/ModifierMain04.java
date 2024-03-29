@@ -3,15 +3,15 @@ package com.itwill.modifier04;
 import com.itwill.modifier05.PublicClassEx;
 
 /*
- * Å¬·¡½º ¸â¹öÀÇ Á¢±Ù Á¦ÇÑÀÚ: private < (package) < protected < public
- * Å¬·¡½ºÀÇ Á¢±Ù Á¦ÇÑÀÚ: 
- * (1)  public: ¾îµğ¼­µç(¸ğµç ÆĞÅ°Áö)¿¡¼­ °ø°³µÈ Å¬·¡½º. import ¹®ÀåÀ» »ç¿ëÇÒ ¼ö ÀÖÀ½
- * (2) (package): ¼ö½Ä¾î°¡ ¾ø´Â °æ¿ì. °°Àº ÆĞÅ°Áö ¾È¿¡¼­¸¸ °ø°³µÈ Å¬·¡½º.
- * (ÁÖÀÇ) public Å¬·¡½ºÀÇ ÀÌ¸§Àº java ÆÄÀÏÀÇ ÀÌ¸§°ú °°¾Æ¾ß ÇÔ
- * ÇÏ³ªÀÇ java ÆÄÀÏ ¾È¿¡ ¿©·¯°³ÀÇ Å¬·¡½º¸¦ ¼±¾ğÇÏ´Â °ÍÀº °¡´É.
- * ÇÏ³ªÀÇ java ÆÄÀÏ ¾È¿¡¼­ 2°³ ÀÌ»óÀÇ public Å¬·¡½º¸¦ ¼±¾ğÇÒ ¼ö ¾øÀ½.
- * ÇÏ³ªÀÇ java ÆÄÀÏ¿¡ ¿©·¯°³ÀÇ Å¬·¡½º¸¦ ¼±¾ğÇÑ °æ¿ì, ÄÄÆÄÀÏ ÈÄ¿¡´Â °¢°¢ÀÇ Å¬·¡½º ÆÄÀÏ(¹ÙÀÌÆ® ÄÚµå)µéÀÌ »ı¼ºµÊ.
- *  ModifierMain04.java --[compile]-->A.class, B.class, ModifierMain04.class
+ * í´ë˜ìŠ¤ ë©¤ë²„ì˜ ì ‘ê·¼ ì œí•œì: private < (package) < protected < public
+ * í´ë˜ìŠ¤ì˜ ì ‘ê·¼ ì œí•œì:
+ *   (1) public: ì–´ë””ì„œë“ (ëª¨ë“  íŒ¨í‚¤ì§€)ì—ì„œ ê³µê°œëœ í´ë˜ìŠ¤. import ë¬¸ì¥ì„ ì‚¬ìš©í•  ìˆ˜ ìˆìŒ.
+ *   (2) (package): ìˆ˜ì‹ì–´ê°€ ì—†ëŠ” ê²½ìš°. ê°™ì€ íŒ¨í‚¤ì§€ ì•ˆì—ì„œë§Œ ê³µê°œëœ í´ë˜ìŠ¤.
+ * (ì£¼ì˜) public í´ë˜ìŠ¤ì˜ ì´ë¦„ì€ java íŒŒì¼ì˜ ì´ë¦„ê³¼ ê°™ì•„ì•¼ í•¨!
+ * í•˜ë‚˜ì˜ java íŒŒì¼ ì•ˆì— ì—¬ëŸ¬ê°œì˜ í´ë˜ìŠ¤ë¥¼ ì„ ì–¸í•˜ëŠ” ê²ƒì€ ê°€ëŠ¥.
+ * í•˜ë‚˜ì˜ java íŒŒì¼ ì•ˆì—ì„œ 2ê°œ ì´ìƒì˜ public í´ë˜ìŠ¤ëŠ” ì„ ì–¸í•  ìˆ˜ ì—†ìŒ.
+ * í•˜ë‚˜ì˜ java íŒŒì¼ì— ì—¬ëŸ¬ê°œì˜ í´ë˜ìŠ¤ë¥¼ ì„ ì–¸í•œ ê²½ìš°, ì»´íŒŒì¼ í›„ì—ëŠ” ê°ê°ì˜ í´ë˜ìŠ¤ íŒŒì¼(ë°”ì´íŠ¸ ì½”ë“œ)ë“¤ì´ ìƒì„±ë¨.
+ *   ModifierMain04.java --[compile]--> A.class, B.class, ModifierMain04.class
  */
 
 class A {}
@@ -20,13 +20,13 @@ class B {}
 
 public class ModifierMain04 {
 
-	public static void main(String[] args) {
-		// PublicClassEx Å¸ÀÔ °´Ã¼ »ı¼º
-		PublicClassEx ex = new PublicClassEx();
-		System.out.println(ex);
-		
-//		com.itwill.modifier05.PackageClassEx ex2; //-> ÄÄÆÄÀÏ ¿¡·¯(not visible)
+    public static void main(String[] args) {
+        // PublicClassEx íƒ€ì… ê°ì²´ ìƒì„±
+        PublicClassEx ex = new PublicClassEx();
+        System.out.println(ex);
+        
+//        com.itwill.modifier05.PackageClassEx ex2; //-> ì»´íŒŒì¼ ì—ëŸ¬(not visible)
 
-	}
+    }
 
 }

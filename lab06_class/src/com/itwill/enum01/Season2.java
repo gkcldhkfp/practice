@@ -1,24 +1,19 @@
 package com.itwill.enum01;
 
 public class Season2 {
-	
-	public static final Season2 SPRING = new Season2("∫Ω");
-	public static final Season2 SUMMER = new Season2("ø©∏ß");
-	public static final Season2 FALL = new Season2("∞°¿ª");
-	public static final Season2 WINTER = new Season2("∞‹øÔ");
-	
-	private String name;
-	
-//	private Season2() {}
-	
-	private Season2(String name) {
-		this.name = name;
-	}
-	
-	
-	
-	public String getName() {
-		return this.name;
-	}
-	
+    public static final Season2 SPRING = new Season2("Î¥Ñ");
+    public static final Season2 SUMMER = new Season2("Ïó¨Î¶Ñ");
+    public static final Season2 FALL = new Season2("Í∞ÄÏùÑ");
+    public static final Season2 WINTER = new Season2("Í≤®Ïö∏");
+    
+    private String name;
+    
+    private Season2(String name) {
+        this.name = name;
+    }
+    
+    public String getName() {
+        return this.name;
+    }
+
 }

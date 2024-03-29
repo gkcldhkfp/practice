@@ -1,35 +1,35 @@
 package com.itwill.modifier03;
 
 public class Member {
-	// field
-	private String memberId; // ÀĞ±â Àü¿ë ÇÊµå
-	private String memberPassword; // ÀĞ±â/¾²±â ÇÊµå
+    // field
+    private String memberId; // ì½ê¸° ì „ìš© í•„ë“œ
+    private String memberPassword; // ì½ê¸°/ì“°ê¸° í•„ë“œ
 
-	// constructor
-	public Member(String memberId, String memberPassword) {
-		if (memberId != null && memberPassword != null) {
-			this.memberId = memberId;
-			this.memberPassword = memberPassword;
-		} else {
-			throw new IllegalArgumentException();
-		}
-	}
+    // constructor
+    public Member(String memberId, String memberPassword) {
+        if (memberId != null && memberPassword != null) {
+            this.memberId = memberId;
+            this.memberPassword = memberPassword;
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
 
-	// method
-	// getter ¸Ş¼­µå
-	public String getMemberId() {
-		return this.memberId;
-	}
+    // method
+    // getter ë©”ì„œë“œ
+    public String getMemberId() {
+        return this.memberId;
+    }
 
-	public String getMemberPassword() {
-		return this.memberPassword;
-	}
+    public String getMemberPassword() {
+        return this.memberPassword;
+    }
 
-	// setter ¸Ş¼­µå
-	public void setMemberPassword(String memberPassword) {
-		if (memberPassword != null) {
-			this.memberPassword = memberPassword;
-		}
-	}
+    // setter ë©”ì„œë“œ
+    public void setMemberPassword(String password) {
+        if (password != null) {
+            this.memberPassword = password;
+        }
+    }
 
 }

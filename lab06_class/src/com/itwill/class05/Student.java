@@ -1,40 +1,47 @@
 package com.itwill.class05;
 
 public class Student {
+    // field
+    int id; // í•™ìƒ ë²ˆí˜¸
+    String name; // í•™ìƒ ì´ë¦„
+    Subject subject; // ìˆ˜ê°• ê³¼ëª©
+    
+    // ìƒì„±ì:
+    // (1)ê¸°ë³¸ ìƒì„±ì.
+    // íƒ€ì… ê¸°ë³¸ê°’: boolean-false, ì •ìˆ˜-0, ì‹¤ìˆ˜-0.0, ì°¸ì¡°íƒ€ì…-null
+    public Student() {}
+    
+    // (2)ì•„ê·œë¨¼íŠ¸ë¥¼ ê°–ëŠ” ìƒì„±ì.
+    public Student(int id, String name, Subject subject) {
+        this.id = id;
+        this.name = name;
+        this.subject = subject;
+    }
+    
+    // ìƒì„±ì (3)
+    public Student(int id, String name, int korean, int english, int math, int science) {
+        this.id = id;
+        this.name = name;
+        this.subject = new Subject(korean, english, math, science);
+    }
 
-	// field
-	int id; // ÇĞ»ı ¹øÈ£
-	String name; // ÇĞ»ı ÀÌ¸§
-	Subject subject;// ¼ö°­ °ú¸ñ
-
-	// »ı¼ºÀÚ: (1)±âº» »ı¼ºÀÚ. (2)¾Æ±Ô¸ÕÆ®¸¦ °®´Â »ı¼ºÀÚ.
-	public Student() {
-	}
-
-	public Student(int id, String name, Subject subject) {
-		this.id = id;
-
-		this.name = name;
-
-		this.subject = subject;
-	}
-
-	// ¸Ş¼­µå: ÇĞ»ıÀÇ Á¤º¸(¹øÈ£, ÀÌ¸§, °¢ °ú¸ñÀÇ Á¡¼ö, ÃÑÁ¡, Æò±Õ)¸¦ Ãâ·Â.
-	public void info() {
-		System.out.println("¹øÈ£ = " + id);
-		System.out.println("ÀÌ¸§ = " + name);
-		if(subject != null) {
-		subject.info();}
-		else { 
-			System.out.println("Subject = null");
-		}
-//		System.out.println("±¹¾î = " + subject.korean); // this.subject.korean °¡´É
-//		System.out.println("¿µ¾î = " + subject.english);
-//		System.out.println("¼öÇĞ = " + subject.math);
-//		System.out.println("°úÇĞ = " + subject.science);
-//		System.out.println("ÃÑÁ¡ = " + subject.total());
-//		System.out.println("Æò±Õ = " + subject.mean());
-
-	}
-
+    // ë©”ì„œë“œ: í•™ìƒì˜ ì •ë³´(ë²ˆí˜¸, ì´ë¦„, ê° ê³¼ëª©ì˜ ì ìˆ˜, ì´ì , í‰ê· )ë¥¼ ì¶œë ¥.
+    public void info() {
+        System.out.println("----- í•™ìƒ ì •ë³´ -----");
+        System.out.println("ë²ˆí˜¸: " + id);
+        System.out.println("ì´ë¦„: " + name);
+        if (subject != null) {
+            subject.info();
+    //        System.out.println("êµ­ì–´: " + subject.korean); // this.subject.korean
+    //        System.out.println("ì˜ì–´: " + subject.english);
+    //        System.out.println("ìˆ˜í•™: " + subject.math);
+    //        System.out.println("ê³¼í•™: " + subject.science);
+    //        System.out.println("ì´ì : " + subject.getTotal());
+    //        System.out.println("í‰ê· : " + subject.getMean());
+        } else {
+            System.out.println("Subject: null");
+        }
+        System.out.println("---------------------");
+    }
+    
 }

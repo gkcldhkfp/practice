@@ -2,22 +2,22 @@ package com.itwill.class04;
 
 public class ClassMain04 {
 
-	public static void main(String[] args) {
-		// ±âº» »ı¼ºÀÚ¸¦ »ç¿ëÇØ¼­ Rectangle °´Ã¼ »ı¼º, ¸Ş¼­µå È£Ãâ
-		Rectangle rect1 = new Rectangle();
+    public static void main(String[] args) {
+        // ê¸°ë³¸ìƒì„±ìë¥¼ ì‚¬ìš©í•´ì„œ Rectangle ê°ì²´ ìƒì„±, ë©”ì„œë“œ í˜¸ì¶œ
+        Rectangle rect1 = new Rectangle();
+        System.out.println("rect1: " + rect1);
+        System.out.println("rect1 ë„“ì´: " + rect1.area());
+        System.out.println("rect1 ë‘˜ë ˆ: " + rect1.perimeter());
+        
+        // ì•„ê·œë¨¼íŠ¸ë¥¼ ê°–ëŠ” ìƒì„±ìë¥¼ ì‚¬ìš©:
+        Rectangle rect2 = new Rectangle(3.0, 4.0);
+        System.out.println("rect2: " + rect2);
+        System.out.println("rect2 ë„“ì´: " + rect2.area());
+        System.out.println("rect2 ë‘˜ë ˆ: " + rect2.perimeter());
+        
+        rect2 = new Rectangle(4, 3);
+        System.out.println("rect2: " + rect2);
 
-		System.out.println("rect1: " + rect1);
-		System.out.println("rect1 ³ĞÀÌ: " + rect1.area());
-		System.out.println("rect1 µÑ·¹: " + rect1.perimeter());
-
-		// ¾Æ±Ô¸ÕÆ®¸¦ °®´Â »ı¼ºÀÚ¸¦ »ç¿ë
-		Rectangle rect2 = new Rectangle(3.0, 4.0);
-
-		System.out.println("rect2 ³ĞÀÌ: " + rect2.area());
-		System.out.println("rect2 µÑ·¹: " + rect2.perimeter());
-
-		rect2 = new Rectangle(4, 3);
-		System.out.println("rect2: " + rect2);
-	}
+    }
 
 }

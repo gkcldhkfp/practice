@@ -2,27 +2,26 @@ package com.itwill.class02;
 
 public class ClassMain02 {
 
-	public static void main(String[] args) {
-		// Score °´Ã¼¸¦ »ı¼º:
-		Score score1 = new Score(); // -> ¸ğµç ÇÊµå´Â ±âº»°ªÀ¸·Î »ı¼ºµÊ.
-		System.out.println("Java = " + score1.java);
+    public static void main(String[] args) {
+        // Score ê°ì²´ë¥¼ ìƒì„±:
+        Score score1 = new Score(); //-> ëª¨ë“  í•„ë“œëŠ” ê¸°ë³¸ê°’ìœ¼ë¡œ ìƒì„±ë¨.
+        System.out.println("java = " + score1.java);
+        
+        // score1 ì¸ìŠ¤í„´ìŠ¤ì˜ í•„ë“œ ê°’ ë³€ê²½:
+        score1.java = 100;
+        score1.sql = 90;
+        score1.javascript = 85;
+        
+        // score1 ì¸ìŠ¤í„´ìŠ¤ì˜ ë©”ì„œë“œ í˜¸ì¶œ:
+        System.out.println("ì´ì : " + score1.getTotal());
+        System.out.println("í‰ê· : " + score1.getMean());
 
-		// score1 ÀÎ½ºÅÏ½ºÀÇ ÇÊµå °ª º¯°æ:
-		score1.java = 100;
-		score1.sql = 90;
-		score1.javascript = 85;
-
-		// score1 ÀÎ½ºÅÏ½ºÀÇ ¸Ş¼­µå È£Ãâ:
-		System.out.println("ÃÑÁ¡ = " + score1.getTotal());
-		System.out.println("Æò±Õ = " + score1.getMean());
-
-		// ¾Æ±Ô¸ÕÆ®¸¦ °®´Â »ı¼ºÀÚ¸¦ ÀÌ¿ëÇÑ score °´Ã¼ »ı¼º:
-		Score score2 = new Score(90, 95, 80);
-
-		System.out.println("score2 Java = " + score2.java);
-		System.out.println("score2 ÃÑÁ¡ = " + score2.getTotal());
-		System.out.println("score2 Æò±Õ = " + score2.getMean());
-
-	}
+        // ì•„ê·œë¨¼íŠ¸ë¥¼ ê°–ëŠ” ìƒì„±ìë¥¼ ì´ìš©í•œ Score ê°ì²´ ìƒì„±:
+        Score score2 = new Score(90, 95, 80);
+        System.out.println("score2 java = " + score2.java);
+        System.out.println("score2 ì´ì : " + score2.getTotal());
+        System.out.println("score2 í‰ê· : " + score2.getMean());
+        
+    }
 
 }

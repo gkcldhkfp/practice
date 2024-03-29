@@ -1,38 +1,35 @@
 package com.itwill.class07;
 
 public class ThisTest {
-	//field
-	int x;
-	int y;
-	int z;
-	
-	// constructor
-	public ThisTest() {}
-	
-	public ThisTest(int x, int y, int z) {
-		this.x = x;
-		this.y = y;
-		this.z = z;
-		//-> this : ThisTest Å¸ÀÔÀ¸·Î »ı¼ºµÈ °´Ã¼(ÀÎ½ºÅÏ½º)
-	}
-	
-	
-	public ThisTest(int x) {
-//		this.x = x;
-		this(x, 0, 0); //-> ThisTest Å¬·¡½ºÀÇ ´Ù¸¥ »ı¼ºÀÚ È£Ãâ
-		// (ÁÖÀÇ) this(...) »ı¼ºÀÚ¸¦ È£ÃâÇÏ´Â ÄÚµå´Â ´Ù¸¥ ½ÇÇà¹®µéº¸´Ù ¸ÕÀú ½ÇÇàµÇ¾î¾ß ÇÔ.
-		
-	}
-	
-	public ThisTest(int x, int y) {
-//		this(x, y, 0);
-		this();
-		this.x = x;
-		this.y = y;
-	}
-	
-	public void info() {
-		System.out.printf("x = %d, y = %d, z = %d\n",this.x, this.y, this.z);
-	}
-	
+    // field
+    int x;
+    int y;
+    int z;
+    
+    // constructor
+    public ThisTest() {}
+    
+    public ThisTest(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        //-> this: ThisTest íƒ€ì…ìœ¼ë¡œ ìƒì„±ëœ ê°ì²´(ì¸ìŠ¤í„´ìŠ¤)
+    }
+    
+    public ThisTest(int x) {
+        //this.x = x;
+        this(x, 0, 0); //-> this(...): ThisTest í´ë˜ìŠ¤ì˜ ë‹¤ë¥¸ ìƒì„±ì í˜¸ì¶œ
+        // (ì£¼ì˜) this(...) ìƒì„±ìë¥¼ í˜¸ì¶œí•˜ëŠ” ì½”ë“œëŠ” ë‹¤ë¥¸ ì‹¤í–‰ë¬¸ë“¤ë³´ë‹¤ ë¨¼ì € ì‹¤í–‰ë˜ì–´ì•¼ ë¨.
+    }
+    
+    public ThisTest(int x, int y) {
+        this(); // í˜„ì¬ í´ë˜ìŠ¤ì˜ ë‹¤ë¥¸ ìƒì„±ìë¥¼ í˜¸ì¶œí•˜ëŠ” ë¬¸ì¥.
+        this.x = x;
+        this.y = y;
+    }
+    
+    public void info() {
+        System.out.printf("x=%d, y=%d, z=%d\n", x, y, z);
+    }
+
 }

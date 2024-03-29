@@ -1,29 +1,29 @@
 package com.itwill.class04;
 
-public class Rectangle { // = Á÷»ç°¢Çü
-	// field
-	double width; // Á÷»ç°¢ÇüÀÇ °¡·Î ±æÀÌ
-	double height; // Á÷»ç°¢ÇüÀÇ ¼¼·Î ±æÀÌ
-
-	// »ı¼ºÀÚ
-	// (1) ±âº» »ı¼ºÀÚ
-	public Rectangle() { }
-	
-	// (2) °¡·Î/¼¼·Î¸¦ ¾Æ±Ô¸ÕÆ®·Î Àü´Ş ¹Ş¾Æ¼­ ÃÊ±âÈ­ ÇÏ´Â »ı¼ºÀÚ
-	public Rectangle(double width, double height) {
-		this.width = width;
-		this.height = height;
-	}
-	
-	// ¸Ş¼­µå
-	// (1) ³ĞÀÌ¸¦ ¸®ÅÏ
-	public double area() {
-		return (width * height);
-	}
-
-	// (2) µÑ·¹±æÀÌ¸¦ ¸®ÅÏ
-	public double perimeter() {
-		return (width + height) * 2;
-	}
+public class Rectangle {
+    // field
+    double width; // ì§ì‚¬ê°í˜•ì˜ ê°€ë¡œ ê¸¸ì´
+    double height; // ì§ì‚¬ê°í˜•ì˜ ì„¸ë¡œ ê¸¸ì´
+    
+    // ìƒì„±ì
+    // (1) ê¸°ë³¸ ìƒì„±ì
+    public Rectangle() {}
+    
+    // (2) ê°€ë¡œ/ì„¸ë¡œë¥¼ ì•„ê·œë¨¼íŠ¸ë¡œ ì „ë‹¬ë°›ì•„ì„œ ì´ˆê¸°í™”í•˜ëŠ” ìƒì„±ì
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+    
+    // ë©”ì„œë“œ
+    // (1) ë„“ì´ë¥¼ ë¦¬í„´
+    public double area() {
+        return width * height;
+    }
+    
+    // (2) ë‘˜ë ˆê¸¸ì´ë¥¼ ë¦¬í„´
+    public double perimeter() {
+        return (width + height) * 2;
+    }
 
 }

@@ -2,50 +2,35 @@ package com.itwill.class05;
 
 public class ClassMain05 {
 
-	public static void main(String[] args) {
-
-		// Subject, Student Å¬·¡½º °´Ã¼ »ı¼º°ú ¸Ş¼­µå È£Ãâ °á°ú Å×½ºÆ®.
-		// ±âº» Å¸ÀÔ »ı¼ºÀÚ¸¦ »ç¿ëÇØ¼­ Subject Å¸ÀÔÀÇ °´Ã¼¸¦ »ı¼º
-		Subject sub = new Subject();
-
-		sub.english = 80;
-		sub.korean = 90;
-		sub.math = 60;
-		sub.science = 85;
-		
-		System.out.println("±¹¾î: " + sub.korean);
-		System.out.println("¼öÇĞ: " + sub.math);
-		System.out.println("¿µ¾î: " + sub.english);
-		System.out.println("°úÇĞ: " + sub.science);
-		System.out.println("ÃÑÁ¡: " + sub.total());
-		System.out.println("Æò±Õ: " + sub.mean());
-
-		// ¾Æ±Ô¸ÕÆ®¸¦ °®´Â »ı¼ºÀÚ¸¦ »ç¿ëÇØ¼­ Subject Å¸ÀÔÀÇ °´Ã¼¸¦ »ı¼º
-		Subject sub1 = new Subject(100, 80, 70, 90);
-
-		sub1.info();
-
-		// ±âº» Å¸ÀÔ »ı¼ºÀÚ¸¦ »ç¿ëÇØ¼­ Student Å¸ÀÔÀÇ °´Ã¼¸¦ »ı¼º
-		Student stu1 = new Student();
-		
-		stu1.info();
-			
-		stu1.id = 2;
-		stu1.name = "¿À¸®¿Â";
-		stu1.subject = new Subject();
-		stu1.subject.korean = 100;
-		stu1.subject.english = 95;
-		stu1.subject.math = 99;
-		stu1.subject.science = 95;
-		
-		stu1.info();
-		
-		
-		// ¾Æ±Ô¸ÕÆ®¸¦ °®´Â »ı¼ºÀÚ¸¦ »ç¿ëÇØ¼­ Student Å¸ÀÔÀÇ °´Ã¼¸¦ »ı¼º
-		Student stu = new Student(3, "È«±æµ¿", sub1);
-
-		stu.info();
-
-	}
-
+    public static void main(String[] args) {
+        // Homework: Subject, Student í´ë˜ìŠ¤ ê°ì²´ ìƒì„±ê³¼ ë©”ì„œë“œ í˜¸ì¶œ ê²°ê³¼ í…ŒìŠ¤íŠ¸.
+        
+        // ê¸°ë³¸ìƒì„±ìë¥¼ ì‚¬ìš©í•´ì„œ Subject íƒ€ì…ì˜ ê°ì²´ ìƒì„±
+        Subject subject1 = new Subject();
+//        System.out.println("êµ­ì–´: " + subject1.korean);
+//        System.out.println("ì˜ì–´: " + subject1.english);
+//        System.out.println("ìˆ˜í•™: " + subject1.math);
+//        System.out.println("ê³¼í•™: " + subject1.science);
+//        System.out.println("ì´ì : " + subject1.getTotal());
+//        System.out.println("í‰ê· : " + subject1.getMean());
+        subject1.info();
+        
+        // ì•„ê·œë¨¼íŠ¸ë¥¼ ê°–ëŠ” ìƒì„±ìë¥¼ ì‚¬ìš©í•´ì„œ Subject íƒ€ì…ì˜ ê°ì²´ë¥¼ ìƒì„±
+        Subject subject2 = new Subject(100, 90, 50, 70);
+        subject2.info();
+        
+        // ì•„ê·œë¨¼íŠ¸ë¥¼ ê°–ëŠ” ìƒì„±ìë¥¼ ì‚¬ìš©í•´ì„œ Student íƒ€ì…ì˜ ê°ì²´ë¥¼ ìƒì„±
+        Student student1 = new Student(1, "í™ê¸¸ë™", subject2);
+        student1.info();
+        
+        // ê¸°ë³¸ ìƒì„±ìë¥¼ ì‚¬ìš©í•´ì„œ Student íƒ€ì…ì˜ ê°ì²´ë¥¼ ìƒì„±
+        Student student2 = new Student();
+        student2.info();
+        
+        // Student ìƒì„±ì (3)ì„ ì‚¬ìš©í•´ì„œ ê°ì²´ ìƒì„±
+        Student student3 = new Student(10, "ì˜¤ìŒ¤", 10, 20, 30, 25);
+        student3.info();
+        
+    }
+    
 }

@@ -1,26 +1,24 @@
 package com.itwill.modifier06;
 
 public class Test {
-	
-	int x; // ÀÎ½ºÅÏ½º ÇÊµå -> heap
-	static int y; // Á¤Àû(static) ÇÊµå -> method ¿µ¿ª 
-	//-> ÇÁ·Î±×·¥ ·Îµù ½ÃÁ¡¿¡ method ¿µ¿ª¿¡ º¯¼ö°¡ »ı¼ºµÇ°í ±âº»°ªÀ¸·Î ÃÊ±âÈ­µÊ.
-	
-	
-	// ÀÎ½ºÅÏ½º ¸Ş¼­µå
-	public void printFields() {
-		System.out.println("--- ÀÎ½ºÅÏ½º ¸Ş¼­µå ---");
-		System.out.println("x = " + x);
-		System.out.println("y = " + y); // ÀÎ½ºÅÏ½º ¸Ş¼­µå´Â static ÇÊµå¸¦ »ç¿ëÇÒ ¼ö ÀÖÀ½.
-		System.out.println("--------------------");
-	}
-	
-	// static ¸Ş¼­µå
-	public static void printFields2() {
-		System.out.println("--- Á¤Àû(static) ¸Ş¼­µå ---");
-//		System.out.println("x = " + x); // static ¸Ş¼­µå´Â staticÀÌ ¾Æ´Ñ ¸â¹ö¸¦ »ç¿ëÇÒ ¼ö ¾øÀ½!
-		System.out.println("y = " + y);
-		System.out.println("------------------------");
-	}
+    int x; // ì¸ìŠ¤í„´ìŠ¤ í•„ë“œ -> heap ì˜ì—­
+    static int y; // ì •ì (static) í•„ë“œ -> method ì˜ì—­
+    //-> í”„ë¡œê·¸ë¨ ë¡œë”© ì‹œì ì— method ì˜ì—­ì— ë³€ìˆ˜ê°€ ìƒì„±ë˜ê³  ê¸°ë³¸ê°’ìœ¼ë¡œ ì´ˆê¸°í™”ë¨.
 
+    // ì¸ìŠ¤í„´ìŠ¤ ë©”ì„œë“œ
+    public void printFields() {
+        System.out.println("--- ì¸ìŠ¤í„´ìŠ¤ ë©”ì„œë“œ ---");
+        System.out.println("x = " + x);
+        System.out.println("y = " + y); // ì¸ìŠ¤í„´ìŠ¤ ë©”ì„œë“œëŠ” static í•„ë“œë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆìŒ.
+        System.out.println("-----------------------");
+    }
+    
+    // static ë©”ì„œë“œ
+    public static void printFields2() {
+        System.out.println("--- ì •ì (static) ë©”ì„œë“œ ---");
+//        System.out.println("x = " + x); // static ë©”ì„œë“œëŠ” staticì´ ì•„ë‹Œ ë©¤ë²„ë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ!
+        System.out.println("y = " + y);
+        System.out.println("---------------------------");
+    }
+    
 }

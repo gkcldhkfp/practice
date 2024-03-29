@@ -1,24 +1,22 @@
 package com.itwill.class03;
 
 public class Person {
-	// field
-	String name;
-	int age;
-
-	// constructor
-	public Person() {	}
-	
-	public Person(String name, int age){
-		this.name = name;
-		this.age = age; 
-				
-	}
-	
-	
-	// method
-	public void introduce() {
-		System.out.println("¾È³çÇÏ¼¼¿ä, Àú´Â " + name + "ÀÔ´Ï´Ù.");
-		System.out.println("Á¦ ³ªÀÌ´Â " + age + "ÀÔ´Ï´Ù.");
-	}
-
+    // field
+    String name;
+    int age;
+    
+    // constructor
+    public Person() {}
+    
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // method
+    public void introduce() {
+        System.out.println("ì•ˆë…•í•˜ì„¸ìš”, ì €ëŠ” " + name + "ì…ë‹ˆë‹¤.");
+        System.out.println("ì œ ë‚˜ì´ëŠ” " + age + "ì…ë‹ˆë‹¤.");
+    }
+    
 }

@@ -1,40 +1,44 @@
 package com.itwill.class05;
 
 public class Subject {
-	   // field
+    // field
     int korean;
     int english;
     int math;
     int science;
     
-    //  »ı¼ºÀÚ: (1)±âº» »ı¼ºÀÚ. (2)¾Æ±Ô¸ÕÆ®¸¦ °®´Â »ı¼ºÀÚ.
-    public Subject() { }
+    // ìƒì„±ì: 
+    // (1)ê¸°ë³¸ ìƒì„±ì.
+    public Subject() {}
     
+    // (2)ì•„ê·œë¨¼íŠ¸ë¥¼ ê°–ëŠ” ìƒì„±ì.
     public Subject(int korean, int english, int math, int science) {
-    	this.korean = korean;
-    	this.english = english;
-    	this.math = math;
-    	this.science = science;
+        this.korean = korean;
+        this.english = english;
+        this.math = math;
+        this.science = science;
     }
-    //  ¸Ş¼­µå: (1)ÃÑÁ¡ ¸®ÅÏ. (2) Æò±Õ ¸®ÅÏ.
     
-    public int total() {
-    	// this. Àº »ı·«°¡´É.
-    	return (korean + english + math + science);
+    // ë©”ì„œë“œ: 
+    //(1)ì´ì  ë¦¬í„´.
+    public int getTotal() {
+        // this.ì€ ìƒëµ ê°€ëŠ¥.
+        return this.korean + this.english + this.math + this.science;
     }
-
     
-    public double mean() {
-    	return (double)total() / 4; // this.total() °¡´É
+    //(2) í‰ê·  ë¦¬í„´.
+    public double getMean() {
+     // this.getTotal() ê°€ëŠ¥
+        return (double) getTotal() / 4;
     }
     
     public void info() {
-		System.out.println("±¹¾î: " + korean);
-		System.out.println("¼öÇĞ: " + math);
-		System.out.println("¿µ¾î: " + english);
-		System.out.println("°úÇĞ: " + science);
-		System.out.println("ÃÑÁ¡: " + total());
-		System.out.println("Æò±Õ: " + mean());
-
+        System.out.println("êµ­ì–´: " + this.korean); // this.ì€ ìƒëµê°€ëŠ¥
+        System.out.println("ì˜ì–´: " + this.english);
+        System.out.println("ìˆ˜í•™: " + this.math);
+        System.out.println("ê³¼í•™: " + this.science);
+        System.out.println("ì´ì : " + getTotal());
+        System.out.println("í‰ê· : " + getMean());
     }
+
 }
