@@ -8,7 +8,7 @@ public class BasicTv {
 
 	public static final int MIN_VOLUME = 0;
 	public static final int MAX_VOLUME = 2;
-
+  
 	// 필드
 	private boolean powerOn; // 전원 상태(true -> ON, false-> OFF)
 	private int channel; // 현재 채널 번호

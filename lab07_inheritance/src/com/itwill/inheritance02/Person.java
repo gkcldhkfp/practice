@@ -8,7 +8,7 @@ public class Person {
 	public Person() {
 		System.out.println("Person 생성자");
 	}
-	
+	   
 	public Person(String name) {
 		this.name = name;
 		System.out.println("Person(name) 생성자");

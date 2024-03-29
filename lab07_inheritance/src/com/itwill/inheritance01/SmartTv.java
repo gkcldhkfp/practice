@@ -10,7 +10,7 @@ public class SmartTv extends BasicTv {
 	private String ip;
 	
 	
-	public void webBrowsing() {
+	public void webBrowsing() { 
 		System.out.println("인터넷 연결");
 		
 	}

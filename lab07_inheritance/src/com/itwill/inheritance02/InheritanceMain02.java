@@ -5,7 +5,7 @@ public class InheritanceMain02 {
 	public static void main(String[] args) {
 		// BusinessPerson 타입 객체 생성:
 		BusinessPerson person1 = new BusinessPerson();
-	
+	  
 		System.out.println(person1.getName() + " : " + person1.getCompany());
 		
 		BusinessPerson person2 = new BusinessPerson("itwill");

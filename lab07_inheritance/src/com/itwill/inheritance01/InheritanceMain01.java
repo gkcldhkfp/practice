@@ -8,7 +8,7 @@ public class InheritanceMain01 {
 
 		tv1.powerOnOff();
 
-		tv1.channelUp();
+		tv1.channelUp();  
 		tv1.channelUp();
 		tv1.channelUp();
 		tv1.channelUp();
