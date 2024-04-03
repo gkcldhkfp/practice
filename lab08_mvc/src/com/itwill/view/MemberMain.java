@@ -91,7 +91,7 @@ public class MemberMain {
 			System.out.println(m);
 		}
 	}
- 
+
 	private void saveNewMember() {
 		if (dao.getCount() < MemberDao.MAX_LENGTH) {
 			System.out.println("\n----- 새 회원 정보 저장 -----");
