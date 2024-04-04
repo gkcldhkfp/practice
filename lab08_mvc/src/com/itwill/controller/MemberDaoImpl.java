@@ -8,8 +8,7 @@ public class MemberDaoImpl implements MemberDao {
 	// ----------------- singleton 구현
 	private static MemberDaoImpl instance = null;
 
-	private MemberDaoImpl() {
-	}
+	private MemberDaoImpl() {}
 
 	public static MemberDaoImpl getInstance() {
 		if (instance == null) {

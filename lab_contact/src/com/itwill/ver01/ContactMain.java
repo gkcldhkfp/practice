@@ -153,7 +153,7 @@ public class ContactMain {
 		System.out.println("[0]종료 [1]저장 [2]목록 [3]인덱스검색 [4]수정");
 		System.out.println("---------------------------------------");
 		System.out.print("선택> ");
-
+		
 		int menu = Integer.parseInt(scanner.nextLine());
 
 		return menu;

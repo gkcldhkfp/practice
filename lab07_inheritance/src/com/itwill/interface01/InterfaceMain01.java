@@ -2,7 +2,6 @@ package com.itwill.interface01;
 
 import com.itwill.database.Database;
 import com.itwill.mysql.MysqlDatabase;
-import com.itwill.oracle.OracleDatabase;
 
 /*
  * 인터페이스(interface):

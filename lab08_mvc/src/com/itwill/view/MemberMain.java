@@ -43,7 +43,7 @@ public class MemberMain {
 
 		}
 
-		System.out.println("프로그램 종료 >>>");
+		System.out.println(">>> 프로그램 종료 <<<");
 
 	}
 
@@ -87,30 +87,33 @@ public class MemberMain {
 	private void readAllMembers() {
 		System.out.println("\n--- 회원 목록 ---");
 		Member[] members = dao.read(); // View에서 contriller 기능을 사용, 출력할 데이터를 가져옴.
+		int i = 0 ;
 		for (Member m : members) {
-			System.out.println(m);
+			System.out.println("["+ i +"]"+m);
+			i++;
 		}
 	}
 
 	private void saveNewMember() {
-		if (dao.getCount() < MemberDao.MAX_LENGTH) {
-			System.out.println("\n----- 새 회원 정보 저장 -----");
-			System.out.print("아이디 입력>>");
-			String id = scanner.nextLine();
-
-			System.out.print("비밀번호 입력>>");
-			String password = scanner.nextLine();
-
-			Member member = new Member(id, password);
-			int result = dao.create(member); // View 객체에서 Controller 객체의 기능을 사용.
-			if (result == 1) {
-				System.out.println("회원 정보 저장 성공");
-			} else {
-				System.out.println("회원 정보 저장 실패");
-			}
-		} else {
+		if (dao.getCount() >= MemberDao.MAX_LENGTH) {
 			System.out.println("저장 공간이 부족합니다");
+			return;
 		}
+		System.out.println("\n----- 새 회원 정보 저장 -----");
+		System.out.print("아이디 입력>>");
+		String id = scanner.nextLine();
+
+		System.out.print("비밀번호 입력>>");
+		String password = scanner.nextLine();
+
+		Member member = new Member(id, password);
+		int result = dao.create(member); // View 객체에서 Controller 객체의 기능을 사용.
+		if (result == 1) {
+			System.out.println("회원 정보 저장 성공");
+		} else {
+			System.out.println("회원 정보 저장 실패");
+		}
+
 	}
 
 	private int selectMainMenu() {
