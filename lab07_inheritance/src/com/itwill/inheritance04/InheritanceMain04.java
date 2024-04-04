@@ -1,44 +1,45 @@
 package com.itwill.inheritance04;
-
+	
 /*
- * final: 변경할 수 없는.
- * final 지역변수: 값을 초기화한 이후에 그 값을 변경할 수 없는(재할당할 수 없는) 지역 변수.
- * final 필드: 반드시 한 번은 명시적으로 초기화해야 하고, 이후에는 값을 변경할 수 없는 필드.
- * 	(1) final 필드를 선언과 동시에 초기화
- * 	(2) final 필드를 초기화할 수 있는 아규먼트를 갖는 생성자를 작성.
- * final 메서드: 변경할 수 없는 메서드. 재정의(override)할 수 없는 메서드.
- * final 클래스: 변경할 수 없는 클래스. 상속받을 수 없는 클래스.
- * 	(예) java.lang.System, java.lang.String, ...
- */
+ * final: 변경할 수 없는. 
+ * final 지역변수 : 값을 초기화 한 이후에 그 값을 변경할 수 없는(값을 재할당 할 수 없는) 지역 변수.
+ * final 필드(클래스에서 {}에서 선언한 변수) :  
+ *	 - 반드시 한 번은 명시적으로 초기화 해야하고, 이 후에는 값을 변경할 수 없는 필드.
+ * 1. final 필드를 선언과 동시에 초기화 하거나
+ * 2. final 필드를 초기화 할 수 있는 아규먼트를 갖는 생성자를 작성.
+ * 
+ * final 메서드: 변경할 수 없는 메서드.
+ * 
+ * final 클래스: 변경할 수 없는 클래스.
+ * 
+ * 
+ */	
+// class MyString extends String {} -> final이 붙은 클래스는 상속 받을 수 없다.
 
-// class MyString extends String {}//-> final 클래스를 상속하는 새로운 클래스는 선언할 수 없음.
-
-class C {}
-final class D {}
-
-class E extends C {}
-//class f extends D {}
-
-
-class A{
-	public void test1() {
+class A{ // 상위 클래스 A
+	public void test1() { // 서브 클래스에서 메서드 변경 허용
 		System.out.println("test1");
+		
 	}
 	
-	public final void test2() {
+	public final void test2() { // final 서브 클래스에서 메서드 변경 불가.
 		System.out.println("test2");
 	}
 }
 
-class B extends A {
-	@Override // 상위 클래스의 final이 아닌 메서드는 override할 수 있음
-	public void test1() {
-		System.out.println("B test1");
+class B extends A{ // 서브 클래스 B에서 
+	@Override
+	public void test1() { // 상위 클래스 A의 메서드 test1 오버라이드(메서드 재정의)
+		System.out.println("B overrides test1");
 	}
 	
-	// 상위 클래스에서 final로 선언된 메서드는 하위 클래스에서 override할 수 없음!
-//	@Override
-//	public void test2() {
+class C{}
+final class D{}
+
+//class F extends D{} 
+	
+	
+//	public void test2() { //->  상위 클래스에서 final로 선언된 메서드는 하위 클래스 오버라이드 불가.
 //		System.out.println("...");
 //	}
 	
@@ -46,8 +47,8 @@ class B extends A {
 
 public class InheritanceMain04 {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(final String[] args) {
+		
 
 	}
 

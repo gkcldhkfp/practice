@@ -4,62 +4,70 @@ import java.util.Random;
 import java.util.Scanner;
 
 /*
- * java.lang.Object 클래스: 자바의 최상위 클래스.
- * 자바의 모든 클래스는 Object 클래스를 확장(상속)
- * Object 클래스에서 public으로 공개된 메서드들은 모든 하위 타입에서 사용할 수 있음.
- * Object 클래스의 모든 메서드는 하위 클래스에서 재정의(override)할 수 있음.
- * (예) toString, equals(), hashCode(), ...
- * - toString(): 객체의 문자열 표현식을 리턴.
- *   "패키지.클래스@주소" 형식의 문자열을 만들어서 리턴.
- * - equals(): 객체 동등 비교 메서드.
- *   힙(heap)에 생성된 객체가 같으면(객체의 주소가 같으면) true, 다르면 false를 리턴.
- * - hashCode(): 객체의 해시코드(정수) 값을 리턴.
- * 	 o. 객체의 주소값으로 해시코드를 만듦.
- * 	 o. 해시코드가 만족해야 하는 조건
- * 		1. 같은 객체에서 hashCode() 여러번 호출하더라도 항상 같은 정수가 리턴되어야 함.
- * 		2. equals() 메서드의 결과가 true가 되는 두 객체의 해시코드 값은 같아야 함.
- * 		3. 해시코드 값이 같은 두 객체에서 eqauls() 메서드의 결과가 항상 true가 될 필요는 없음.
+ * java.lang.Object 클래스 : 자바의 최상위 클래스.
+ * 자바에서 만들어진 모든 클래스는 기본적으로 Object 클래스를 확장(상속 extends)하게끔 되어있다.
+ * 오브젝트 클래스에 있는 public으로 공개된 메서드들은 모든 하위 타입에서 사용 할 수 있다.
+ * 오브젝트 클래스의 모든 메서드는 하위 클래스에서 재정의(override)를 할 수 있다.
+ * 오브젝트 클래스가 가지고 있는 대표적인 메소드 - toString, equals(),hashCode(),...
  */
+
+//public class T {} // 두 개의 public 클래스 X. public으로 선언된 클래스와 .java 파일 이름이 같아야 함.
+//-> 그래서 public 클래스는 1개. public 아니고 그냥 클래스는 여러개 선언 가능.
 
 class T {
 	@Override
 	public String toString() {
+		
 		return "T 타입 인스턴스";
 	}
 }
 
-
-
 public class InheritanceMain05 {
 
 	public static void main(String[] args) {
-		T t = new T();
-		System.out.println(t);
-		// System.out.println(Object x) 메서드는 객체의 문자열 표현식을 콘솔에 출력.
-		// 아규먼트가 null이 아닌 경우에는 x.toString()이 리턴하는 문자열을 콘솔에 출력.
-		// 아규먼트가 null인 경우에는 콘솔에 "null"이라고 출력.
+		T t =new T(); // 자바 컴파일러는 기본생성자 1개만 자동으로 만들어 줌.
+		System.out.println(t); 
 		System.out.println(t.toString());
-		System.out.println(t.getClass());
+		// void java.io.PrintStream.println(String x) - 오버 로딩
+		
+		System.out.println(t.getClass()); 
+		//출력 결과-> class com.itwill.inheritance05.T 
+		
 		System.out.println(t.hashCode());
-	
+		
 		T t1 = new T();
 		T t2 = new T();
 		T t3 = t1;
-		System.out.println(t1.equals(t2));
-		System.out.println(t1.equals(t3));
-		// Object 클래스에서 상속받은 equals() 메서드:
-		// 두 객체가 같은지(true), 다른 지(false)를 반환하는 메서드.
+		System.out.println(t1.equals(t2)); // 출력 결과 -> false
+		System.out.println(t1.equals(t3)); // 출력 결과 -> true
+		// Object 클래스에서 상속 받은 equls()메서드 :
+		// 두 객체가 같은 지(true), 다른 지(false)를 반환하는 메서드.
 		// Object에서는 실제로 생성된 객체가 같으면 true를 리턴, 그렇지 않으면 false 리턴.
+		
+		// equals()메서드도 Object클래스에서 물려받음.
+		// stack에 t1,t2,t3 지역변수 
+		// heap에 T객체 생성 2개. @ABCD위치에 1개 , @ABFF위치에 1개
+		// t1과 t3 같은 객체 참조하고 있음. 
+		// t1과 t2 서로 다른 주소의 객체를 참조 하고 있음
+		// 참조하는 객체의 주소를 보고 같으냐 다르냐 비교한 것.
+		
+		//System.out.println(Object x); 메서드는 객체의 문자열 표현식을 콘솔에 출력.
+		// 아규먼트가 null이 아닌 경우에는 x.toString()이 리턴하는 문자열을 콘솔에 출력.
+		// 아규먼트가 null이 아닌 경우에는 콘솔에 "null"이라고 출력.
 		
 		Object o = new Object();
 		System.out.println(o);
 		
 		Random r = new Random();
- 		System.out.println(r); //-> Random 클래스는 toString() 메서드를 override하지 않음
+		System.out.println(r); // Random클래스는 toString 메서드를 오버라이드 하지 않음.
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println(sc); //-> Scanner 클래스는 toString() 메서드를 override함.
-
+		System.out.println(sc); // 같은 Object 타입의 아규먼트인데, 
+		//이건 출력 형태가 다름.
+		//왜 그럴까? => Scanner 클래스가 toString()메서드(부모가 물려준 메서드를)를 
+		// 오버라이딩(하위 클래스에서 메서드 재정의)함.
+		
+		
 	}
 
 }

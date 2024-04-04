@@ -1,21 +1,30 @@
 package com.itwill.inheritance03;
 
-// 하이브리드 자동차는 자동차이다.
-// 자동차 - 상위 타입, 하이브리드 자동차 - 하위 타입
-// class HybridCar extends Car
+// 하이브리드 자동차는 자동차이다. -> yes
+// 상위 타입(부모) - 자동차
+// 하위 타입(자식) - 하이브리드 자동차
+// 자바 문법으로는 -> class HybridCar extends Car
+
 public class Car {
-	// field
-	private int fuel;  // 연료
-	private int speed; // 속력
 	
-	// 생성자
+	//필드 - 자동차가 갖는 속성
+	private int fuel; //연료
+	private int speed; //속력
+	
+	//생성자(객체 생성할 때 초기화하는 역할)
 	public Car(int fuel, int speed) {
 		this.fuel = fuel;
 		this.speed = speed;
 	}
 	
-	public int getfuel() {
+	//getter & setter
+
+	public int getFuel() {
 		return fuel;
+	}
+
+	public void setFuel(int fuel) {
+		this.fuel = fuel;
 	}
 
 	public int getSpeed() {
@@ -25,15 +34,13 @@ public class Car {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
-
-	public void setFuel(int fuel) {
-		this.fuel = fuel;
-	}
 	
 	// 메서드
 	public void drive() {
-		System.out.println("자동차 운전중(speed: " + speed + ", 연료: " + fuel + " )");
+		System.out.println("자동차 운전중(속력: " + speed + ", 연료: " + fuel + ")");
+		
 	}
 	
 	
+
 }
