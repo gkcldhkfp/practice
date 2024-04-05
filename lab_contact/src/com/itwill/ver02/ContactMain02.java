@@ -8,7 +8,8 @@ import com.itwill.ver01.Contact;
 public class ContactMain02 {
 
 	Scanner sc = new Scanner(System.in);
-	ContactDaoImpl dao = new ContactDaoImpl();
+	ContactDaoImpl dao = ContactDaoImpl.getInstance();
+	
 
 	public static void main(String[] args) {
 		ContactMain02 app = new ContactMain02();

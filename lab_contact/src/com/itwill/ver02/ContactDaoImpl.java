@@ -7,6 +7,17 @@ public class ContactDaoImpl implements ContactDao {
 	private Contact[] contacts = new Contact[MAX_LENGTH];
 
 	private int count = 0;
+	
+	private ContactDaoImpl() {}
+	
+	private static ContactDaoImpl instance = null;
+	
+	public static ContactDaoImpl getInstance() {
+		if(instance == null) {
+			instance = new ContactDaoImpl();
+		}
+		return instance;
+	}
 
 	@Override
 	public int create(Contact contact) {
