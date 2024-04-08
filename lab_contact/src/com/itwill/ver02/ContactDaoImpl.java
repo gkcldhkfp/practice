@@ -52,12 +52,6 @@ public class ContactDaoImpl implements ContactDao {
 		return 1;
 	}
 
-	/**
-	 * 인덱스 유효성 검사
-	 * 
-	 * @param index
-	 * @return 유효하지 않은 index면 true, 유효하면 false
-	 */
 	public boolean validIndex(int index) {
 		if (index < 0 || index >= MAX_LENGTH) {
 			return false;

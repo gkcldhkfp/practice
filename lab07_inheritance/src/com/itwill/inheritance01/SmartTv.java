@@ -31,5 +31,9 @@ public class SmartTv extends BasicTv { // BasicTv기능 + 추가 기능
 		System.out.println(getChannel());
 		// getter 메서드 -> 금고 열쇠.
 	}
+
+	public String getIp() {
+		return ip;
+	}
 	
 }
