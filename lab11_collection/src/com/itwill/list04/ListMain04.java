@@ -13,7 +13,7 @@ public class ListMain04 {
 		// 1. names에서 5글자 이상인 문자열을 대문자로 변환해서 저장하는 ArrayList를 만들고 출력.
 		// -> [JAVASCRIPT, SERVLET, SPRING]
 
-		ArrayList<String> ex1 = new ArrayList<String>();
+		ArrayList<String> ex1 = new ArrayList<>();
 
 		for (String s : names) {
 			if (s.length() >= 5) {
@@ -40,15 +40,13 @@ public class ListMain04 {
 		ArrayList<String> ex3 = new ArrayList<>();
 
 		for (int i : codes) {
-			if (i == 0) {
-				ex3.add("남성");
-			} else {
-				ex3.add("여성");
-			}
+			ex3.add((i == 0) ? "남성" : "여성");
+//			if (i == 0) {
+//				ex3.add("남성");
+//			} else {
+//				ex3.add("여성");
+//			}
 		}
-
 		System.out.println(ex3);
-
 	}
-
 }
