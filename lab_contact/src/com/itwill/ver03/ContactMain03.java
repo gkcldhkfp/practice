@@ -47,7 +47,7 @@ public class ContactMain03 {
 	}
 
 	private void deleteContactByIndex() {
-		
+
 		System.out.println("--- 연락처 삭제 ---");
 		System.out.print("인덱스 입력>");
 		int index = inputInteger();
@@ -55,14 +55,14 @@ public class ContactMain03 {
 			System.out.println("해당 인덱스에는 삭제할 정보가 없습니다...");
 			return;
 		}
-		
+
 		int result = dao.delete(index);
 		if (result == 1) {
 			System.out.println(">>> 연락처 삭제 성공");
 		} else {
 			System.out.println(">>> 연락처 삭제 실패");
 		}
-		
+
 	}
 
 	private void updateContactByIndex() {
@@ -121,12 +121,12 @@ public class ContactMain03 {
 	private void readAllContacts() {
 		System.out.println("\n--- 연락처 목록 ---");
 
+		int index = 0;
 		List<Contact> contacts = dao.read();
-		if (!contacts.isEmpty()) {
-			for(Contact c : contacts) {
-				System.out.println(c);
+			for (Contact c : contacts) {
+				System.out.println("[" + index + "]" + c);
+				index++;
 			}
-		}
 	}
 
 	private void saveNewContact() {
