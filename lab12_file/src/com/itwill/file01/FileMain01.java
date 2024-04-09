@@ -44,7 +44,7 @@ public class FileMain01 {
 					break;
 				}
 				out.write(read);	// 파일에 읽은 1바이트를 씀.
-				// System.out.println((char)read);
+				// System.out.println((char)read); 
 			}
 			System.out.println("파일 복사 성공");	
 		} catch (Exception e) {
@@ -67,4 +67,3 @@ public class FileMain01 {
 	}
 
 }
-
