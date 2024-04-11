@@ -44,6 +44,7 @@ public class FileMain05 {
 				ObjectInputStream ois = new ObjectInputStream(bis);) {
 
 
+				@SuppressWarnings("unchecked")
 				ArrayList<Product> a = (ArrayList<Product>) ois.readObject();
 
 				System.out.println(a.size());
