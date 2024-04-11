@@ -29,10 +29,8 @@ public class FileMain05 {
 		try (FileOutputStream out = new FileOutputStream(filename);
 				BufferedOutputStream bos = new BufferedOutputStream(out);
 				ObjectOutputStream oos = new ObjectOutputStream(bos)) {
-			
-				oos.writeObject(list);
-			
 
+			oos.writeObject(list);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,16 +42,16 @@ public class FileMain05 {
 		try (FileInputStream in = new FileInputStream(filename);
 				BufferedInputStream bis = new BufferedInputStream(in);
 				ObjectInputStream ois = new ObjectInputStream(bis);) {
-			
-			
-			ArrayList<Product> a = (ArrayList<Product>) ois.readObject();
-			
-			System.out.println(a.size());
-			
-			System.out.println(a.get(500));
-			
-			System.out.println(a.get(999999));
 
+
+				ArrayList<Product> a = (ArrayList<Product>) ois.readObject();
+
+				System.out.println(a.size());
+
+				System.out.println(a.get(500));
+
+				System.out.println(a.get(999999));
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
