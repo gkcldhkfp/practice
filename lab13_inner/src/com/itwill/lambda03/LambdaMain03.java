@@ -93,8 +93,6 @@ public class LambdaMain03 {
 		 * 람다의 구현부가 메서드 1개 호출이고, 그 메서드가 람다의 아규먼트를 전달받는 경우:
 		 * 		x -> System.out.println(x)
 		 * 		System.out::println
-		 * 
-		 * 
 		 */
 		 languages.forEach(System.out::println);
 		
