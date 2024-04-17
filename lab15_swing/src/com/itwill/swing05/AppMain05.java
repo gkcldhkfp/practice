@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import javax.swing.JScrollPane;
 
 public class AppMain05 {
 
@@ -17,7 +18,7 @@ public class AppMain05 {
 	private JTextField textFieldPhone;
 	private JTextField textFieldEmail;
 	private JTextArea textAreaResult;
-	private JButton btnNewButton;
+	private JButton btnInput;
 
 	/**
 	 * Launch the application.
@@ -61,13 +62,15 @@ public class AppMain05 {
 		frame.getContentPane().add(lblPhone);
 		
 		JLabel lblEmail = new JLabel("이메일");
+		lblEmail.setForeground(new Color(0, 0, 0));
+		lblEmail.setBackground(new Color(128, 128, 64));
 		lblEmail.setBounds(80, 198, 100, 30);
 		frame.getContentPane().add(lblEmail);
 		
-		btnNewButton = new JButton("입력");
-		btnNewButton.addActionListener((e) -> insert());
-		btnNewButton.setBounds(575, 202, 80, 30);
-		frame.getContentPane().add(btnNewButton);
+		btnInput = new JButton("입력");
+		btnInput.addActionListener((e) -> insert());
+		btnInput.setBounds(575, 202, 80, 30);
+		frame.getContentPane().add(btnInput);
 		
 		textFieldName = new JTextField();
 		textFieldName.setBounds(184, 81, 300, 30);
@@ -84,20 +87,28 @@ public class AppMain05 {
 		textFieldEmail.setBounds(184, 203, 300, 30);
 		frame.getContentPane().add(textFieldEmail);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(53, 264, 561, 118);
+		frame.getContentPane().add(scrollPane);
+		
 		textAreaResult = new JTextArea();
-		textAreaResult.setFont(new Font("D2Coding", Font.PLAIN, 15));
-		textAreaResult.setBounds(80, 272, 575, 118);
-		frame.getContentPane().add(textAreaResult);
+		scrollPane.setViewportView(textAreaResult);
+		textAreaResult.setFont(new Font("D2Coding", Font.PLAIN, 16));
 	}
 	
 	private void insert() {
-		String x = textFieldEmail.getText();
-		String y =textFieldName.getText();
-		String z =textFieldPhone.getText();
+		String email = textFieldEmail.getText();
+		String name =textFieldName.getText();
+		String phone =textFieldPhone.getText();
 		
-		String result = String.format("이름 : %s \n전화번호 : %s \n이메일 : %s",y, z, x );
+		String result = String.format("이름 : %s 전화번호 : %s 이메일 : %s\n",name, phone, email );
 		
-		textAreaResult.setText(result);
+//		textAreaResult.setText(result); 기존 내용을 지우고 새로 씀
+		textAreaResult.append(result);  // 기존에 작성된 내용 끝에 추가.
+		
+		// 모든 JTextField의 입력된 내용을 지움.
+		textFieldName.setText("");
+		textFieldEmail.setText("");
+		textFieldPhone.setText("");
 	}
-
 }
