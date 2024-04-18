@@ -1,4 +1,4 @@
-package com.itwill.ver04.model;
+package com.itwill.ver05.model;
 
 import java.io.Serializable;
 

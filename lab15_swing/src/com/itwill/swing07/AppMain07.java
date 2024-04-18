@@ -4,12 +4,15 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class AppMain07 {
+import com.itwill.swing07.MyFrame.Notifiable;
+
+public class AppMain07 implements Notifiable {
 
 	private JFrame frame;
 	private JButton btnMsgDlg;
@@ -17,7 +20,6 @@ public class AppMain07 {
 	private JButton btnInputDlg;
 	private JButton btnCustomDlg;
 	private JButton btnMyFrame;
-
 	/**
 	 * Launch the application.
 	 */
@@ -129,13 +131,20 @@ public class AppMain07 {
 		
 		btnMyFrame = new JButton("프레임");
 		btnMyFrame.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				MyFrame.showMyFrame(frame);
+				MyFrame.showMyFrame(frame, AppMain07.this);
+				//-> 아규먼트 frame: MyFrame 클래스가 부모 컴포넌트(JFrame) 정보를 사용할 수 있도록.
+				//-> 아규먼트 AppMain07.this: AppMain07 타입으로 생성된 객체(의 주소). 현재 객체.
+				//	MyFrame 클래스에서 AppMain07 객체의 public 메서드를 호출할 수 있도록.
 			}
 		});
 		btnMyFrame.setFont(new Font("D2Coding", Font.BOLD, 90));
 		btnMyFrame.setBounds(12, 447, 603, 100);
 		frame.getContentPane().add(btnMyFrame);
 	}
-
+	@Override
+	public void notifyMessage(String msg) {
+		btnMyFrame.setText(msg);
+	}
 }

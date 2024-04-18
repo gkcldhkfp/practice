@@ -25,7 +25,7 @@ public class MyDialog extends JDialog {
 	private JTextField textField;
 	private JLabel lblNewLabel;
 	private JButton btnNewButton;
-
+	
 	// 부모 컴포넌트를 저장하기 위한 필드
 	private Component parentComponent;
 	private JButton btnNewButton_1;
@@ -134,7 +134,7 @@ public class MyDialog extends JDialog {
 				btnNewButton_1.setEnabled(false);
 				btnNewButton_2.setEnabled(false);
 				btnNewButton_3.setEnabled(false);
-				textField.setText("ㄷㄷㄷ");
+				textField.setText("ㅇㅅㅇ");
 				
 			}
 		});
