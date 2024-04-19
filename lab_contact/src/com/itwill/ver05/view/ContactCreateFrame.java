@@ -167,8 +167,8 @@ public class ContactCreateFrame extends JFrame {
 		int result = dao.create(contact);
 		if(result == 1) { // 연락처 저장 성공
 			// ContactMain에게 연락처 저장이 성공됐음을 알려줌 
-			app.notifyContactCreated();
 			dispose(); // 현재 창 닫기
+			app.notifyContactCreated();
 		} else { // 연락처 저장 실패
 			//TODO 사용자에게 저장 실패 메시지 보여주기
 		}
