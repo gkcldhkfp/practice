@@ -11,6 +11,7 @@ public class Blog {
 		public static final String COL_WRITER = "WRITER";
 		public static final String COL_CREATED_TIME = "CREATED_TIME";
 		public static final String COL_MODIFIED_TIME = "MODIFIED_TIME";	
+		public static final String TBL_BLOGS = "BLOGS";
 	}
 	
 	private int id;
