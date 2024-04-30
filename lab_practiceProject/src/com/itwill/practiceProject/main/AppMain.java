@@ -138,80 +138,92 @@ public class AppMain {
 	}
 
 	private void calendarDefault(int select) {
-		// 일 버튼 리스트
-		List<JButton> daysList = new ArrayList<>();
-		for (int i = 1; i <= 42; i++) {
-			daysList.add(new JButton(i + ""));
-		}
+	    // 일 버튼 리스트
+	    List<JButton> daysList = new ArrayList<>();
+	    for (int i = 1; i <= 42; i++) {
+	        daysList.add(new JButton(i + ""));
+	    }
 
-		if (select == -1) {
-			if (selectedMonth == 1) {
-				selectedYears -= 1;
-				selectedMonth = 12;
-			} else {
-				selectedMonth -= 1;
-			}
-		}
+	    if (select == -1) {
+	        if (selectedMonth == 1) {
+	            selectedYears -= 1;
+	            selectedMonth = 12;
+	        } else {
+	            selectedMonth -= 1;
+	        }
+	    }
 
-		if (select == 1) {
-			if (selectedMonth == 12) {
-				selectedYears += 1;
-				selectedMonth = 1;
-			} else {
-				selectedMonth += 1;
-			}
-		}
+	    if (select == 1) {
+	        if (selectedMonth == 12) {
+	            selectedYears += 1;
+	            selectedMonth = 1;
+	        } else {
+	            selectedMonth += 1;
+	        }
+	    }
 
-		// 총 일수
-		int dayOfMonth = LocalDate.of(selectedYears, selectedMonth, 1).lengthOfMonth();
+	    // 총 일수
+	    int dayOfMonth = LocalDate.of(selectedYears, selectedMonth, 1).lengthOfMonth();
 
-		// 연/월 세팅
-		lblMonth.setText(selectedYears + "년" + " " + selectedMonth + "월");
+	    // 연/월 세팅
+	    lblMonth.setText(selectedYears + "년" + " " + selectedMonth + "월");
 
-		// 요일 세팅
-		dayOfWeekPanel = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) dayOfWeekPanel.getLayout();
-		flowLayout.setHgap(65);
-		flowLayout.setVgap(10);
-		panelCenter.add(dayOfWeekPanel, BorderLayout.NORTH);
+	    // 요일 세팅
+	    JPanel topPanel = new JPanel(); // 요일과 버튼이 있는 패널
+	    topPanel.setLayout(new BorderLayout()); // BorderLayout 사용
 
-		for (String d : days) {
-			JLabel label = new JLabel(d);
-			label.setHorizontalAlignment(SwingConstants.CENTER);
-			label.setFont(new Font("D2Coding", Font.PLAIN, 20));
-			dayOfWeekPanel.add(label);
-		}
-		// 해당 월의 1일 요일
-		LocalDate date = LocalDate.of(selectedYears, selectedMonth, 1);
-		DayOfWeek dayOfWeek = date.getDayOfWeek();
-		int dayOfWeekNumber = dayOfWeek.getValue();
+	    // 요일 세팅
+	    dayOfWeekPanel = new JPanel();
+	    dayOfWeekPanel.setLayout(new GridLayout(1, 7)); // 요일을 표시하는 패널을 GridLayout으로 설정
+	    topPanel.add(dayOfWeekPanel, BorderLayout.NORTH); // 요일 패널을 topPanel의 NORTH에 추가
 
-		// 일수만큼만 채우기
-		int x = 0;
-		for (int i = 0; i < daysList.size(); i++) {
-			int index = i;
-			daysPanel.add(daysList.get(i));
-			daysList.get(i).setBackground(new Color(255, 255, 255));
-			daysList.get(i).setVerticalAlignment(SwingConstants.TOP);
-			if (dayOfWeekNumber == 7) {
-				dayOfWeekNumber = 0;
-			}
-			if (i < dayOfWeekNumber || x >= dayOfMonth) {
-				daysList.get(i).setText("");
-			} else {
-				daysList.get(i).setText("" + (x + 1));
-				daysList.get(i).addActionListener(new ActionListener() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						String btntext = daysList.get(index).getText();
-						System.out.println(selectedYears + " " + selectedMonth+" "+ btntext);
-					}
-				});
-				x++;
-			}
-			
-			
-		}
+	    for (String d : days) {
+	        JLabel label = new JLabel(d);
+	        label.setHorizontalAlignment(SwingConstants.CENTER);
+	        label.setFont(new Font("D2Coding", Font.PLAIN, 20));
+	        dayOfWeekPanel.add(label);
+	        
+	    }
 
+	    // 버튼 세팅
+	    daysPanel = new JPanel();
+	    daysPanel.setLayout(new GridLayout(6, 7, 5, 5)); // 버튼 패널을 GridLayout으로 설정
+	    topPanel.add(daysPanel, BorderLayout.CENTER); // 버튼 패널을 topPanel의 CENTER에 추가
+	    panelCenter.add(topPanel, BorderLayout.CENTER); // topPanel을 panelCenter의 CENTER에 추가
+
+	    // 해당 월의 1일 요일 
+	    LocalDate date = LocalDate.of(selectedYears, selectedMonth, 1);
+	    DayOfWeek dayOfWeek = date.getDayOfWeek();
+	    int dayOfWeekNumber = dayOfWeek.getValue();
+
+	    // 일수만큼만 채우기
+	    int x = 0;
+	    for (int i = 0; i < daysList.size(); i++) {
+	        int index = i;
+	        daysPanel.add(daysList.get(i));
+	        daysList.get(i).setBackground(new Color(255, 255, 255));
+	        daysList.get(i).setVerticalAlignment(SwingConstants.TOP);
+	        if (index % 7 == 0) { // 6은 토요일과 일요일에 해당하는 인덱스입니다.
+	            daysList.get(index).setForeground(Color.RED); // 적절한 색으로 변경하세요
+	        } else if (index % 7 == 6){
+	        	daysList.get(index).setForeground(Color.BLUE);
+	        }
+	        if (dayOfWeekNumber == 7) {
+	            dayOfWeekNumber = 0;
+	        }
+	        if (i < dayOfWeekNumber || x >= dayOfMonth) {
+	            daysList.get(i).setText("");
+	        } else {
+	            daysList.get(i).setText("" + (x + 1));
+	            daysList.get(i).addActionListener(new ActionListener() {
+	                @Override
+	                public void actionPerformed(ActionEvent e) {
+	                    String btntext = daysList.get(index).getText();
+	                    System.out.println(selectedYears + " " + selectedMonth + " " + btntext);
+	                }
+	            });
+	            x++;
+	        }
+	    }
 	}
 }
