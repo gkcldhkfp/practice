@@ -4,24 +4,25 @@ import java.time.LocalDateTime;
 
 public class Blog {
 	public static final class Entity {
-		// 데이터베이스 BLOGS 테이블의 컬럼 이름들을 상수로 선언. 
+		// 데이터베이스 BLOGS 테이블의 컬럼 이름들을 상수로 선언.
 		public static final String COL_ID = "ID";
 		public static final String COL_TITLE = "TITLE";
 		public static final String COL_CONTENT = "CONTENT";
 		public static final String COL_WRITER = "WRITER";
 		public static final String COL_CREATED_TIME = "CREATED_TIME";
-		public static final String COL_MODIFIED_TIME = "MODIFIED_TIME";	
+		public static final String COL_MODIFIED_TIME = "MODIFIED_TIME";
 		public static final String TBL_BLOGS = "BLOGS";
 	}
-	
+
 	private int id;
 	private String title;
 	private String content;
 	private String writer;
 	private LocalDateTime createdTime;
 	private LocalDateTime modifiedTime;
-	
-	public Blog() {}
+
+	public Blog() {
+	}
 
 	public Blog(int id, String title, String content, String writer, LocalDateTime createdTime,
 			LocalDateTime modifiedTime) {
@@ -86,6 +87,5 @@ public class Blog {
 		return "Blog [id=" + id + ", title=" + title + ", content=" + content + ", writer=" + writer + ", createdTime="
 				+ createdTime + ", modifiedTime=" + modifiedTime + "]";
 	}
-	
-	
+
 }
