@@ -1,10 +1,13 @@
-package com.itwill.practiceProject.main;
+package com.itwill.practiceProject.view;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -22,6 +25,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.FlowLayout;
 import javax.swing.JList;
+import java.awt.Dimension;
 
 public class AppMain {
 
@@ -42,6 +46,9 @@ public class AppMain {
 	private LocalDate nowDate = LocalDate.now(); // 현재날짜
 	private int selectedMonth = nowDate.getMonthValue(); // 월
 	private int selectedYears = nowDate.getYear(); // 연
+	private JLabel lblSelectedDay;
+	private JList<String> list;
+	private DefaultListModel<String> listModel = new DefaultListModel<>();
 
 	/**
 	 * Launch the application.
@@ -116,7 +123,26 @@ public class AppMain {
 		panelEast = new JPanel();
 		frame.getContentPane().add(panelEast, BorderLayout.EAST);
 		panelEast.setLayout(new BorderLayout(0, 0));
+		
+		lblSelectedDay = new JLabel("");
+		lblSelectedDay.setFont(new Font("D2Coding", Font.PLAIN, 14));
+		lblSelectedDay.setPreferredSize(new Dimension(75, 18));
+		panelEast.add(lblSelectedDay, BorderLayout.NORTH);
+		
+		list = new JList<>(listModel);
+		list.setFont(new Font("D2Coding", Font.PLAIN, 15));
+		panelEast.add(list, BorderLayout.CENTER);
 
+	}
+	
+	private void listSetUp(String btnText) {
+		String lbl = String.format("%d/%d/%s", selectedYears,selectedMonth,btnText);
+		lblSelectedDay.setText(lbl);
+		
+		// TODO DB에서 일정 제목들 불러오기
+		// read schedule title (date)
+		// 불러온거 리스트에 추가
+		listModel.addElement(null);
 	}
 
 	private void nextMonth() {
@@ -220,7 +246,7 @@ public class AppMain {
 	                @Override
 	                public void actionPerformed(ActionEvent e) {
 	                    String btntext = daysList.get(index).getText();
-	                    System.out.println(selectedYears + " " + selectedMonth + " " + btntext);
+	                    listSetUp(btntext);
 	                }
 	            });
 	            x++;
