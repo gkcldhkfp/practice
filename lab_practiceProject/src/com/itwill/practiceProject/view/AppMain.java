@@ -29,6 +29,8 @@ import com.itwill.practiceProject.controller.ScheduleDao;
 
 import java.awt.FlowLayout;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -57,6 +59,8 @@ public class AppMain {
 	private DefaultListModel<String> listModel = new DefaultListModel<>();
 
 	ScheduleDao dao = ScheduleDao.getinstance();
+	private JButton btnDelete;
+	private JButton btnCreate;
 
 	/**
 	 * Launch the application.
@@ -125,7 +129,18 @@ public class AppMain {
 		panelNorth.add(btnNext);
 
 		panelSouth = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panelSouth.getLayout();
+		flowLayout.setHgap(100);
 		frame.getContentPane().add(panelSouth, BorderLayout.SOUTH);
+
+		btnCreate = new JButton("추가");
+		btnCreate.setFont(new Font("D2Coding", Font.PLAIN, 16));
+		panelSouth.add(btnCreate);
+
+		btnDelete = new JButton("삭제");
+		btnDelete.addActionListener((e) -> deleteSchedule());
+		btnDelete.setFont(new Font("D2Coding", Font.PLAIN, 16));
+		panelSouth.add(btnDelete);
 
 		panelWest = new JPanel();
 		frame.getContentPane().add(panelWest, BorderLayout.WEST);
@@ -153,6 +168,24 @@ public class AppMain {
 
 	}
 
+	private void deleteSchedule() {
+		String title = list.getSelectedValue();
+		String selectedDate = lblSelectedDay.getText();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		LocalDate date = LocalDate.parse(selectedDate, formatter);
+
+		String btn = lblSelectedDay.getText().substring(8, 10);
+		if (Integer.parseInt(btn) < 10) {
+			btn = lblSelectedDay.getText().substring(9, 10);
+		}
+
+		int result = dao.delete(title, date);
+		if (result > 0) {
+			listSetUp(btn);
+			JOptionPane.showMessageDialog(frame, "삭제성공");
+		}
+	}
+
 	private void handleDoubleClick(JList<String> list2, MouseEvent e) {
 		int index = list.locationToIndex(e.getPoint());
 		if (index != -1) {
@@ -160,7 +193,7 @@ public class AppMain {
 			System.out.println("더블클릭된 항목의 인덱스: " + index);
 			System.out.println("더블클릭된 항목의 값: " + selectedItem);
 			// 더블클릭된 리스트 아이템의 이름을 가지고 일정의 상세정보 띄우기
-			ScheduleInfo.showScheduleInfo(this.frame,selectedItem,lblSelectedDay.getText());
+			ScheduleInfo.showScheduleInfo(this.frame, selectedItem, lblSelectedDay.getText());
 
 		}
 	}

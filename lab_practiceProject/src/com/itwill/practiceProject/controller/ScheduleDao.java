@@ -112,7 +112,6 @@ public class ScheduleDao {
 	 * @return 생성된 Schedule 타입
 	 * @throws SQLException
 	 */
-
 	private Schedule makeScheduleFromResultSet(ResultSet rs) throws SQLException {
 
 		String title;
@@ -166,7 +165,7 @@ public class ScheduleDao {
 
 		return result;
 	}
-	
+
 	/**
 	 * 데이터베이스의 ScheduleDemo 테이블에 행을 삽입.
 	 * 
@@ -174,17 +173,17 @@ public class ScheduleDao {
 	 * @return 테이블에 삽입된 행의 개수.
 	 */
 	public int update(Schedule sc) {
-		final String sql = String.format("update %s set %s = ?, %s = ?, %s = ? where %s = ? and %s = ?",
-			    						TBL_SCHEDULE, COL_TITLE, COL_CONTENT, COL_LOCATION, COL_DATE, COL_TITLE);
-		
+		final String sql = String.format("update %s set %s = ?, %s = ?, %s = ? where %s = ? and %s = ?", TBL_SCHEDULE,
+				COL_TITLE, COL_CONTENT, COL_LOCATION, COL_DATE, COL_TITLE);
+
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		int result = 0;
-		
+
 		System.out.println(sql);
 		System.out.println(sc.getTitle());
 		System.out.println(sc.getDate());
-		
+
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
 			stmt = conn.prepareStatement(sql);
@@ -193,9 +192,38 @@ public class ScheduleDao {
 			stmt.setString(3, sc.getWhere());
 			stmt.setDate(4, sc.getDate());
 			stmt.setString(5, sc.getTitle());
+
+			result = stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeResources(conn, stmt);
+		}
+
+		return result;
+	}
+
+	/**
+	 * 해당하는 제목과 날짜를 가진 데이터 삭제
+	 * 
+	 * @param title
+	 * @param date
+	 */
+	public int delete(String title, LocalDate date) {
+		final String sql = String.format("delete from %s where %s = ? and %s = ?", TBL_SCHEDULE, COL_DATE, COL_TITLE);
+
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		int result = 0;
+
+		try {
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			stmt = conn.prepareStatement(sql);
+			stmt.setDate(1, Date.valueOf(date));
+			stmt.setString(2, title);
 			
 			result = stmt.executeUpdate();
-			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -204,6 +232,7 @@ public class ScheduleDao {
 		}
 		
 		return result;
+
 	}
-	
+
 }
