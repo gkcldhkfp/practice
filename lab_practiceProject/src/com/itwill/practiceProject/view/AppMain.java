@@ -26,6 +26,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import com.itwill.practiceProject.controller.ScheduleDao;
+import com.itwill.practiceProject.view.ScheduleInfo.UpdateNotify;
 
 import java.awt.FlowLayout;
 import javax.swing.JList;
@@ -35,7 +36,7 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class AppMain {
+public class AppMain implements UpdateNotify {
 
 	private JFrame frame;
 	private JPanel panelNorth;
@@ -134,6 +135,7 @@ public class AppMain {
 		frame.getContentPane().add(panelSouth, BorderLayout.SOUTH);
 
 		btnCreate = new JButton("추가");
+		btnCreate.addActionListener((e) -> createSchedule());
 		btnCreate.setFont(new Font("D2Coding", Font.PLAIN, 16));
 		panelSouth.add(btnCreate);
 
@@ -168,6 +170,15 @@ public class AppMain {
 
 	}
 
+	private void createSchedule() {
+		String selectedDate = lblSelectedDay.getText();
+
+		CreateSchedule.showScheduleCreate(frame, selectedDate, AppMain.this);
+		
+		
+//		dao.create()
+	}
+
 	private void deleteSchedule() {
 		String title = list.getSelectedValue();
 		String selectedDate = lblSelectedDay.getText();
@@ -179,10 +190,14 @@ public class AppMain {
 			btn = lblSelectedDay.getText().substring(9, 10);
 		}
 
-		int result = dao.delete(title, date);
-		if (result > 0) {
-			listSetUp(btn);
-			JOptionPane.showMessageDialog(frame, "삭제성공");
+		int check = JOptionPane.showConfirmDialog(frame, "삭제하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
+		if (check == JOptionPane.YES_OPTION) {
+			int result = dao.delete(title, date);
+			if (result > 0) {
+				listSetUp(btn);
+				JOptionPane.showMessageDialog(frame, "삭제성공");
+				updateButtonLabels();
+			}
 		}
 	}
 
@@ -190,10 +205,8 @@ public class AppMain {
 		int index = list.locationToIndex(e.getPoint());
 		if (index != -1) {
 			String selectedItem = list.getModel().getElementAt(index);
-			System.out.println("더블클릭된 항목의 인덱스: " + index);
-			System.out.println("더블클릭된 항목의 값: " + selectedItem);
 			// 더블클릭된 리스트 아이템의 이름을 가지고 일정의 상세정보 띄우기
-			ScheduleInfo.showScheduleInfo(this.frame, selectedItem, lblSelectedDay.getText());
+			ScheduleInfo.showScheduleInfo(this.frame, selectedItem, lblSelectedDay.getText(), AppMain.this);
 
 		}
 	}
@@ -203,8 +216,14 @@ public class AppMain {
 		DefaultListModel<String> newListModel = new DefaultListModel<>();
 		list.setModel(newListModel);
 
+		String btnText2 = btnText;
+
+		if (btnText.length() >= 2) {
+			btnText2 = btnText.substring(0, 2).trim();
+		}
+
 		String formattedMonth = (selectedMonth < 10) ? "0" + selectedMonth : String.valueOf(selectedMonth);
-		String formattedDay = (Integer.parseInt(btnText) < 10) ? "0" + btnText : btnText;
+		String formattedDay = (Integer.parseInt(btnText2) < 10) ? "0" + btnText2 : btnText2;
 
 		String lbl = selectedYears + "/" + formattedMonth + "/" + formattedDay;
 
@@ -212,8 +231,8 @@ public class AppMain {
 		LocalDate date = LocalDate.parse(lbl, formatter);
 
 		lblSelectedDay.setText(lbl);
-		// DB에서 일정 제목들 불러오기
 
+		// DB에서 일정 제목들 불러오기
 		List<String> result = dao.readToDate(date);
 
 		// 불러온거 리스트에 추가
@@ -325,9 +344,49 @@ public class AppMain {
 						String btnText = daysList.get(index).getText();
 						listSetUp(btnText);
 					}
+
 				});
+				LocalDate currentDate = LocalDate.of(selectedYears, selectedMonth, x + 1);
+				if (hasSchedule(currentDate)) {
+					daysList.get(i).setText(daysList.get(i).getText() + " (!)");
+				}
 				x++;
 			}
 		}
 	}
+
+	@Override
+	public void notifyUpdateSuccess() {
+		listSetUp("" + Integer.parseInt(lblSelectedDay.getText().substring(8)));
+		updateButtonLabels();
+		
+	}
+
+	private boolean hasSchedule(LocalDate date) {
+		// 데이터베이스에서 해당 날짜의 일정을 조회합니다.
+		List<String> schedules = dao.readToDate(date);
+		// 조회된 일정이 있는지 여부를 반환합니다.
+		return !schedules.isEmpty();
+	}
+	
+	public void updateButtonLabels() {
+	    for (int i = 0; i < daysPanel.getComponentCount(); i++) {
+	        JButton button = (JButton) daysPanel.getComponent(i);
+	        String btnText = button.getText();
+	        
+	        if (btnText.length() >= 2) {
+				btnText = btnText.substring(0, 2).trim();
+			}
+	        
+	        if (!btnText.isBlank()) {
+	            LocalDate currentDate = LocalDate.of(selectedYears, selectedMonth, Integer.parseInt(btnText));
+	            if (hasSchedule(currentDate)) {
+	                button.setText(btnText + " (!)");
+	            } else {
+	                button.setText(btnText);
+	            }
+	        }
+	    }
+	}
+
 }

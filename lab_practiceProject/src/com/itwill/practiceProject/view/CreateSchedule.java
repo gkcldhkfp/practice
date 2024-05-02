@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.itwill.practiceProject.controller.ScheduleDao;
 import com.itwill.practiceProject.model.Schedule;
+import com.itwill.practiceProject.view.ScheduleInfo.UpdateNotify;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -22,16 +23,13 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.sql.Date;
 
-public class ScheduleInfo extends JFrame {
+public class CreateSchedule extends JFrame {
 	
-	 public interface UpdateNotify {
-	        public void notifyUpdateSuccess();
-	    }
+	 
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	String selectedItem;
 	String selectedDate;
 	Component parent;
 	
@@ -46,17 +44,16 @@ public class ScheduleInfo extends JFrame {
 	
 	private ScheduleDao dao = ScheduleDao.getinstance();
 	private JTextArea textAreaContent;
-	private Schedule result;
 	private UpdateNotify app;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void showScheduleInfo(Component parent, String selectedItem, String selectedDate, UpdateNotify app) {
+	public static void showScheduleCreate(Component parent, String selectedDate, UpdateNotify app) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ScheduleInfo frame = new ScheduleInfo(parent, selectedItem, selectedDate, app);
+					CreateSchedule frame = new CreateSchedule(parent, selectedDate, app);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -65,21 +62,14 @@ public class ScheduleInfo extends JFrame {
 		});
 	}
 
-	private ScheduleInfo(Component parent, String selectedItem, String selectedDate, UpdateNotify app) {
+	private CreateSchedule(Component parent, String selectedDate, UpdateNotify app) {
 		this.app = app;
 		this.parent = parent;
-		this.selectedItem = selectedItem;
 		this.date = LocalDate.parse(selectedDate, formatter);
 		initialize();
-		setInfoToTextField();
 	}
 
-	private void setInfoToTextField() {
-		result = dao.readToInfo(selectedItem, date);
-		textFieldTitle.setText(result.getTitle());
-		textAreaContent.setText(result.getContent());
-		textFieldLocation.setText(result.getWhere());
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -130,7 +120,7 @@ public class ScheduleInfo extends JFrame {
 		contentPane.add(lblLocation);
 
 		btnSave = new JButton("저장");
-		btnSave.addActionListener((e) -> updateScheduleInfo());
+		btnSave.addActionListener((e) -> CreateScheduleInfo());
 		btnSave.setFont(new Font("D2Coding", Font.PLAIN, 18));
 		btnSave.setBounds(43, 434, 120, 37);
 		contentPane.add(btnSave);
@@ -147,7 +137,7 @@ public class ScheduleInfo extends JFrame {
 		contentPane.add(textAreaContent);
 	}
 
-	private void updateScheduleInfo() {
+	private void CreateScheduleInfo() {
 		String title = textFieldTitle.getText();
 		Date ldate = Date.valueOf(date);
 		if (title == null || title.trim().isEmpty()) {
@@ -158,11 +148,11 @@ public class ScheduleInfo extends JFrame {
 		String location = textFieldLocation.getText();
 
 		Schedule schedule = new Schedule(title, ldate, content, null, location);
-
-		dao.update(schedule,result.getTitle());
+		
+		dao.create(schedule);
 		
 		app.notifyUpdateSuccess();
-		JOptionPane.showMessageDialog(contentPane, "업데이트 완료");
+		JOptionPane.showMessageDialog(contentPane, "추가 완료");
 		dispose();
 
 	}

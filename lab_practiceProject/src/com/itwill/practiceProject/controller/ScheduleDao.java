@@ -172,7 +172,7 @@ public class ScheduleDao {
 	 * @param Schedule 테이블에 삽입할 제목, 날짜 정보를 가지고 있는 객체
 	 * @return 테이블에 삽입된 행의 개수.
 	 */
-	public int update(Schedule sc) {
+	public int update(Schedule sc, String oldTitle) {
 		final String sql = String.format("update %s set %s = ?, %s = ?, %s = ? where %s = ? and %s = ?", TBL_SCHEDULE,
 				COL_TITLE, COL_CONTENT, COL_LOCATION, COL_DATE, COL_TITLE);
 
@@ -180,9 +180,6 @@ public class ScheduleDao {
 		PreparedStatement stmt = null;
 		int result = 0;
 
-		System.out.println(sql);
-		System.out.println(sc.getTitle());
-		System.out.println(sc.getDate());
 
 		try {
 			conn = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -191,9 +188,10 @@ public class ScheduleDao {
 			stmt.setString(2, sc.getContent());
 			stmt.setString(3, sc.getWhere());
 			stmt.setDate(4, sc.getDate());
-			stmt.setString(5, sc.getTitle());
+			stmt.setString(5, oldTitle);
 
-			result = stmt.executeUpdate();
+			stmt.executeUpdate();
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -233,6 +231,32 @@ public class ScheduleDao {
 		
 		return result;
 
+	}
+
+	public int create(Schedule sc) {
+		final String sql = String.format("insert into %s (%s, %s, %s, %s) values (?, ?, ?, ?)", 
+				TBL_SCHEDULE,COL_DATE,COL_TITLE,COL_CONTENT,COL_LOCATION);
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		
+		try {
+			conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			stmt = conn.prepareStatement(sql);
+			stmt.setDate(1, sc.getDate());
+			stmt.setString(2, sc.getTitle());
+			stmt.setString(3, sc.getContent());
+			stmt.setString(4, sc.getWhere());
+			
+			result = stmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeResources(conn, stmt);
+		}
+	
+		return result;
 	}
 
 }
