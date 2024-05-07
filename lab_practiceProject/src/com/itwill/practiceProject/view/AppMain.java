@@ -26,6 +26,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 
 import com.itwill.practiceProject.controller.ScheduleDao;
+import com.itwill.practiceProject.view.DateSelect.NotifyDateSelect;
 import com.itwill.practiceProject.view.ScheduleInfo.UpdateNotify;
 
 import java.awt.FlowLayout;
@@ -36,7 +37,7 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class AppMain implements UpdateNotify {
+public class AppMain implements UpdateNotify, NotifyDateSelect {
 
 	private JFrame frame;
 	private JPanel panelNorth;
@@ -62,6 +63,7 @@ public class AppMain implements UpdateNotify {
 	ScheduleDao dao = ScheduleDao.getinstance();
 	private JButton btnDelete;
 	private JButton btnCreate;
+	private JButton btnDate;
 
 	/**
 	 * Launch the application.
@@ -126,6 +128,10 @@ public class AppMain implements UpdateNotify {
 
 		btnNext = new JButton("next");
 		btnNext.addActionListener((e) -> nextMonth());
+		
+		btnDate = new JButton("날짜 선택");
+		btnDate.addActionListener((e) -> DateSelect.showDateSelect(AppMain.this, frame, selectedYears, selectedMonth));
+		panelNorth.add(btnDate);
 		btnNext.setFont(new Font("D2Coding", Font.PLAIN, 17));
 		panelNorth.add(btnNext);
 
@@ -174,9 +180,7 @@ public class AppMain implements UpdateNotify {
 		String selectedDate = lblSelectedDay.getText();
 
 		CreateSchedule.showScheduleCreate(frame, selectedDate, AppMain.this);
-		
-		
-//		dao.create()
+
 	}
 
 	private void deleteSchedule() {
@@ -190,6 +194,10 @@ public class AppMain implements UpdateNotify {
 			btn = lblSelectedDay.getText().substring(9, 10);
 		}
 
+		if(title == null) {
+			return;
+		}
+		
 		int check = JOptionPane.showConfirmDialog(frame, "삭제하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
 		if (check == JOptionPane.YES_OPTION) {
 			int result = dao.delete(title, date);
@@ -261,6 +269,7 @@ public class AppMain implements UpdateNotify {
 	}
 
 	private void calendarDefault(int select) {
+		 daysPanel.removeAll();
 		// 일 버튼 리스트
 		List<JButton> daysList = new ArrayList<>();
 		for (int i = 1; i <= 42; i++) {
@@ -336,6 +345,7 @@ public class AppMain implements UpdateNotify {
 			}
 			if (i < dayOfWeekNumber || x >= dayOfMonth) {
 				daysList.get(i).setText("");
+				daysList.get(i).setEnabled(false);
 			} else {
 				daysList.get(i).setText("" + (x + 1));
 				daysList.get(i).addActionListener(new ActionListener() {
@@ -359,7 +369,7 @@ public class AppMain implements UpdateNotify {
 	public void notifyUpdateSuccess() {
 		listSetUp("" + Integer.parseInt(lblSelectedDay.getText().substring(8)));
 		updateButtonLabels();
-		
+
 	}
 
 	private boolean hasSchedule(LocalDate date) {
@@ -368,25 +378,36 @@ public class AppMain implements UpdateNotify {
 		// 조회된 일정이 있는지 여부를 반환합니다.
 		return !schedules.isEmpty();
 	}
-	
+
 	public void updateButtonLabels() {
-	    for (int i = 0; i < daysPanel.getComponentCount(); i++) {
-	        JButton button = (JButton) daysPanel.getComponent(i);
-	        String btnText = button.getText();
-	        
-	        if (btnText.length() >= 2) {
+		for (int i = 0; i < daysPanel.getComponentCount(); i++) {
+			JButton button = (JButton) daysPanel.getComponent(i);
+			String btnText = button.getText();
+
+			if (btnText.length() >= 2) {
 				btnText = btnText.substring(0, 2).trim();
 			}
-	        
-	        if (!btnText.isBlank()) {
-	            LocalDate currentDate = LocalDate.of(selectedYears, selectedMonth, Integer.parseInt(btnText));
-	            if (hasSchedule(currentDate)) {
-	                button.setText(btnText + " (!)");
-	            } else {
-	                button.setText(btnText);
-	            }
-	        }
-	    }
+
+			if (!btnText.isBlank()) {
+				LocalDate currentDate = LocalDate.of(selectedYears, selectedMonth, Integer.parseInt(btnText));
+				if (hasSchedule(currentDate)) {
+					button.setText(btnText + " (!)");
+				} else {
+					button.setText(btnText);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void notifyDateChange(LocalDate date) {
+		selectedYears = date.getYear();
+		selectedMonth = date.getMonthValue();
+		
+		calendarDefault(0);
+		
+		listSetUp(""+date.getDayOfMonth());
+		updateButtonLabels();
 	}
 
 }
