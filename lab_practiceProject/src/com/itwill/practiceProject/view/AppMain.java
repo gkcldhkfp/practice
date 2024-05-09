@@ -100,7 +100,7 @@ public class AppMain implements UpdateNotify, NotifyDateSelect {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 670, 570);
+		frame.setBounds(600, 300, 670, 570);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		panelCenter = new JPanel();
